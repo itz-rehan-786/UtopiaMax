@@ -4,17 +4,17 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 
-from DAXXMUSIC import app
-from DAXXMUSIC.misc import SUDOERS
-from DAXXMUSIC.utils.database import (
+from GOKUMUSIC import app
+from GOKUMUSIC.music import SUDOERS
+from GOKUMUSIC.utils.database import (
     get_active_chats,
     get_authuser_names,
     get_client,
     get_served_chats,
     get_served_users,
 )
-from DAXXMUSIC.utils.decorators.language import language
-from DAXXMUSIC.utils.formatters import alpha_to_int
+from GOKUMUSIC.utils.decorators.language import language
+from GOKUMUSIC.utils.formatters import alpha_to_int
 from config import adminlist
 
 IS_BROADCASTING = False
