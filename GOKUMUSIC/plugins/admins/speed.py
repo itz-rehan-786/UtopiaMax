@@ -1,13 +1,13 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app
-from DAXXMUSIC.core.call import DAXX
-from DAXXMUSIC.misc import SUDOERS, db
-from DAXXMUSIC.utils import AdminRightsCheck
-from DAXXMUSIC.utils.database import is_active_chat, is_nonadmin_chat
-from DAXXMUSIC.utils.decorators.language import languageCB
-from DAXXMUSIC.utils.inline import close_markup, speed_markup
+from GOKUMUSIC import app
+from GOKUMUSIC.core.call import DAXX
+from GOKUMUSIC.misc import SUDOERS, db
+from GOKUMUSIC.utils import AdminRightsCheck
+from GOKUMUSIC.utils.database import is_active_chat, is_nonadmin_chat
+from GOKUMUSIC.utils.decorators.language import languageCB
+from GOKUMUSIC.utils.inline import close_markup, speed_markup
 from config import BANNED_USERS, adminlist
 
 checker = []
