@@ -1,14 +1,14 @@
 import random
 from pyrogram import filters
-from DAXXMUSIC import app
-from DAXXMUSIC import *
+from GOKUMUSIC import app
+from GOKUMUSIC import *
 from ... import *
 import config
 
 from ...logging import LOGGER
 
-from DAXXMUSIC import app, userbot
-from DAXXMUSIC.core.userbot import *
+from GOKUMUSIC import app, userbot
+from GOKUMUSIC.core.userbot import *
 
 import asyncio
 
@@ -19,14 +19,14 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from dotenv import load_dotenv
-from DAXXMUSIC.core.userbot import Userbot
+from GOKUMUSIC.core.userbot import Userbot
 from datetime import datetime
 
 # Assuming Userbot is defined elsewhere
 userbot = Userbot()
 
 
-BOT_LIST = ["IAM_DAXXBOT", "NexikoBot", "GitWizardBot", "stringseasonrobot", "LivioXBot"]
+BOT_LIST = [""] # Yaha hme hmne jitne bhi bot bnaye hai unke user dalne hai without @ke *
 
 @app.on_message(filters.command("botschk") & filters.user(OWNER_ID))
 async def bots_chk(_, message):
