@@ -1,5 +1,4 @@
 from pyrogram import Client, enums, filters
-#from config import *
 import asyncio
 from GOKUMUSIC import app as app
 
