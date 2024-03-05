@@ -28,7 +28,7 @@ from pyrogram import Client, filters
 import git
 import shutil
 import os
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 
 
 
