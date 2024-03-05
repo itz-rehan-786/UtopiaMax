@@ -1,8 +1,8 @@
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from config import OWNER_ID
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from GOKUMUSIC.utils.daxx_ban import admin_filter
+from GOKUMUSIC.utils.goku_ban import admin_filter
 
 BOT_ID = "" #Yha bot id lgega
 
