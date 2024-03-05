@@ -4,7 +4,7 @@ import pyfiglet
 from random import choice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from pyrogram.handlers import MessageHandler
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 def figle(text):
     x = pyfiglet.FigletFont.getFonts()
     font = choice(x)
@@ -32,4 +32,4 @@ async def figlet_handler(Client, query: CallbackQuery):
 __mod_name__ = "Fɪɢʟᴇᴛ" 
 __help__="""
 ❍ /figlet*:* ᴍᴀᴋᴇs ғɪɢʟᴇᴛ ᴏғ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ
-Example:\n\n`/figlet DAXX PAPA `"""
+Example:\n\n`/figlet GOKU PAPA `"""
