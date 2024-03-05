@@ -1,7 +1,7 @@
 from pyrogram import Client, enums, filters
 #from config import *
 import asyncio
-from DAXXMUSIC import app as app
+from GOKUMUSIC import app as app
 
 from pyrogram.handlers import MessageHandler
 
