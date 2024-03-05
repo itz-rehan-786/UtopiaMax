@@ -1,4 +1,4 @@
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from os import environ
 from config import BOT_USERNAME
 import config
@@ -52,8 +52,8 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "DAXXMUSIC/assets/userinfo.png"
-font_path = "DAXXMUSIC/assets/hiroko.ttf"
+bg_path = "GOKUMUSIC/assets/userinfo.png"
+font_path = "GOKUMUSIC/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 
