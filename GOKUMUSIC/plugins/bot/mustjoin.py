@@ -2,11 +2,11 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 
 #--------------------------
 
-MUST_JOIN = "ALLTYPECC"
+MUST_JOIN = "goopu_group"
 #------------------------
 @app.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(app: Client, msg: Message):
