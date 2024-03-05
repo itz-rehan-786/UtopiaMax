@@ -4,7 +4,7 @@ import os
 import requests 
 from pyrogram import filters
 from config import BOT_USERNAME
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from pyrogram import filters
 import pyrogram
 from uuid import uuid4
@@ -50,7 +50,7 @@ async def upscale_image(app, message):
 
 waifu_api_url = 'https://api.waifu.im/search'
 
-# IAM_DAXX
+# Zindagi_hai_tere_nal
 
 def get_waifu_data(tags):
     params = {
