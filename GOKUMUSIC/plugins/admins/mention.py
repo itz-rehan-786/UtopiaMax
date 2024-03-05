@@ -2,7 +2,7 @@ import asyncio
 from pyrogram.enums import ChatType, ChatMemberStatus
 from GOKUMUSIC import app
 from pyrogram import filters
-from GOKUMUSIC.utils.daxx_ban import admin_filter
+from GOKUMUSIC.utils.goku_ban import admin_filter
 
 
 
