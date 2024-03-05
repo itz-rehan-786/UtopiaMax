@@ -8,14 +8,14 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.enums import *
 
 #BOT FILE NAME
-from DAXXMUSIC import app as app
-from DAXXMUSIC.mongo.couples_db import _get_image, get_couple
+from GOKUMUSIC import app as app
+from GOKUMUSIC.mongo.couples_db import _get_image, get_couple
 
 POLICE = [
     [
         InlineKeyboardButton(
-            text="𓊈𒆜彡[𝐃𝚊𝚡𝚡 𝐂𝙲 𝐂𝙻𝚄𝙱 ]彡𒆜𓊉",
-            url=f"https://t.me/ALLTYPECC",
+            text="𓊈𝗚𝗢𝗞𝗨 𝗕𝗢𝗧 𝗠𝗔𝗞𝗘𝗥𓊉",
+            url=f"https://t.me/goku_groupz",
         ),
     ],
 ]
