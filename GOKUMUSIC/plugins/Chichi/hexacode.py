@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from config import BOT_USERNAME
 
 
@@ -15,8 +15,6 @@ def text_to_hex(text):
     hex_representation = ' '.join(format(ord(char), 'x') for char in text)
     return hex_representation
 
-
-# IAM_DAXX ...........................
 
 @app.on_message(filters.command("code"))
 def convert_text(_, message):
