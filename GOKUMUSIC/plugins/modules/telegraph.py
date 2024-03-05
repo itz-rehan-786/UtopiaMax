@@ -1,10 +1,10 @@
 from telegraph import upload_file
 from pyrogram import filters
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from pyrogram.types import InputMediaPhoto
 
 
-@app.on_message(filters.command(["tgm" , "telegraph"]))
+@app.on_message(filters.command(["tgm" , "telegraph" ,"link"]))
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:
