@@ -15,7 +15,7 @@ load_dotenv()
 
 from GOKUMUSIC import app
 from GOKUMUSIC.core.call import GOKU
-from GOKUMUSIC.misc import db
+from GOKUMUSIC.music import db
 from GOKUMUSIC.utils.database import get_assistant, get_authuser_names, get_cmode
 from GOKUMUSIC.utils.decorators import ActualAdminCB, AdminActual, language
 from GOKUMUSIC.utils.formatters import alpha_to_int, get_readable_time
