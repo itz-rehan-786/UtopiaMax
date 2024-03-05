@@ -5,7 +5,7 @@ import requests
 from aiohttp import ClientSession
 from pyrogram import filters
 from pyrogram.types import *
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 
 button = InlineKeyboardMarkup([[
             InlineKeyboardButton("⌯ ᴄʟᴏsᴇ ⌯", callback_data="close_data")
@@ -94,6 +94,3 @@ async def take_ss(_, message: Message):
         await m.delete()
     except Exception as e:
         await m.edit(str(e))
-
-
-
