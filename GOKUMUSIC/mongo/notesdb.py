@@ -1,6 +1,5 @@
-from DAXXMUSIC.utils.mongo import db
+from GOKUMUSIC.utils.mongo import db
 
-#from DAXXMUSIC.mongo import *# back...............
 
 notes = db.notes["notes"]
 
