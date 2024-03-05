@@ -2,14 +2,14 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
-from DAXXMUSIC import YouTube, app
-from DAXXMUSIC.core.call import DAXX
-from DAXXMUSIC.misc import db
-from DAXXMUSIC.utils.database import get_loop
-from DAXXMUSIC.utils.decorators import AdminRightsCheck
-from DAXXMUSIC.utils.inline import close_markup, stream_markup
-from DAXXMUSIC.utils.stream.autoclear import auto_clean
-from DAXXMUSIC.utils.thumbnails import get_thumb
+from GOKUMUSIC import YouTube, app
+from GOKUMUSIC.core.call import GOKU
+from GOKUMUSIC.music import db
+from GOKUMUSIC.utils.database import get_loop
+from GOKUMUSIC.utils.decorators import AdminRightsCheck
+from GOKUMUSIC.utils.inline import close_markup, stream_markup
+from GOKUMUSIC.utils.stream.autoclear import auto_clean
+from GOKUMUSIC.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 
