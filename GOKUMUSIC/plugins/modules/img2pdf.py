@@ -7,10 +7,10 @@ from PIL import Image
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app
-from DAXXMUSIC.utils.errors import capture_err
+from GOKUMUSIC import app
+from GOKUMUSIC.utils.errors import capture_err
 
-from DAXXMUSIC.core.sections import section
+from GOKUMUSIC.core.sections import section
 
 
 async def convert(
