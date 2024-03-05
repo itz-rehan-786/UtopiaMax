@@ -1,4 +1,4 @@
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 from pyrogram import Client, filters
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
