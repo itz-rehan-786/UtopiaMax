@@ -2,7 +2,7 @@ import os
 import cv2
 from PIL import Image
 from pyrogram import Client, filters
-from DAXXMUSIC import app
+from GOKUMUSIC import app
 
 
 @app.on_message(filters.command("tiny"))
