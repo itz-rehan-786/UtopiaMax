@@ -3,10 +3,10 @@ from telegram import CallbackQuery
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from DAXXMUSIC import YouTube, app
-from DAXXMUSIC.core.call import DAXX
-from DAXXMUSIC.misc import SUDOERS, db
-from DAXXMUSIC.utils.database import (
+from GOKUMUSIC import YouTube, app
+from GOKUMUSIC.core.call import GOKU
+from GOKUMUSIC.music import SUDOERS, db
+from GOKUMUSIC.utils.database import (
     get_active_chats,
     get_lang,
     get_upvote_count,
@@ -23,12 +23,12 @@ from pyrogram.errors import (
     UserAlreadyParticipant,
     UserNotParticipant,
 )
-from DAXXMUSIC.utils.database import get_assistant
-from DAXXMUSIC.utils.decorators.language import languageCB
-from DAXXMUSIC.utils.formatters import seconds_to_min
-from DAXXMUSIC.utils.inline import close_markup, stream_markup, stream_markup_timer
-from DAXXMUSIC.utils.stream.autoclear import auto_clean
-from DAXXMUSIC.utils.thumbnails import get_thumb
+from GOKUMUSIC.utils.database import get_assistant
+from GOKUMUSIC.utils.decorators.language import languageCB
+from GOKUMUSIC.utils.formatters import seconds_to_min
+from GOKUMUSIC.utils.inline import close_markup, stream_markup, stream_markup_timer
+from GOKUMUSIC.utils.stream.autoclear import auto_clean
+from GOKUMUSIC.utils.thumbnails import get_thumb
 from config import (
     BANNED_USERS,
     SOUNCLOUD_IMG_URL,
