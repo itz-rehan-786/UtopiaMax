@@ -1,5 +1,5 @@
-from DAXXMUSIC.misc import SUDOERS
-from DAXXMUSIC.utils.database import get_lang, is_maintenance
+from GOKUMUSIC.music import SUDOERS
+from GOKUMUSIC.utils.database import get_lang, is_maintenance
 from strings import get_string
 
 
