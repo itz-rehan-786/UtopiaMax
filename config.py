@@ -9,24 +9,24 @@ from pyrogram import filters
 load_dotenv()
 # ------------------------------------
 # -----------------------------------------------------
-API_ID = int(getenv("API_ID","22792918"))
-API_HASH = getenv("API_HASH","ff10095d2bb96d43d6eb7a7d9fc85f81")
+API_ID = int(getenv("API_ID"))
+API_HASH = getenv("API_HASH")
 # ------------------------------------------------------
-BOT_TOKEN = getenv("BOT_TOKEN""6623411485:AAG5-mWLYJ4L4M5_g7Ta84259sHqyE1lemo")
+BOT_TOKEN = getenv("BOT_TOKEN")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","Zindagi_hai_tere_nal")
+OWNER_USERNAME = getenv("OWNER_USERNAME","")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "Kiyansh3_bot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "@Kiyansh3_bot")
 # --------------------------------------------------------
-BOT_NAME = getenv("BOT_NAME" , "Kiyansh")
+BOT_NAME = getenv("BOT_NAME" , "GOKU")
 # ---------------------------------------------------------
-ASSUSERNAME = getenv("ASSUSERNAME" , "ChICHI")
+ASSUSERNAME = getenv("ASSUSERNAME" , "CHICHI")
 # ---------------------------------------------------------
 
 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-MONGO_DB_URI = getenv("MONGO_DB_URI", " mongodb+srv://GOKU:MISSBHOPALI@goku.pzzsl8d.mongodb.net/?retryWrites=true&w=majority")
+MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
@@ -35,7 +35,7 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
-LOGGER_ID = int(getenv("LOGGER_ID", -1002126989582))
+LOGGER_ID = int(getenv("LOGGER_ID", --1002126989582))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 OWNER_ID = int(getenv("OWNER_ID", 5595153270))
@@ -45,9 +45,9 @@ OWNER_ID = int(getenv("OWNER_ID", 5595153270))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME","GOKU")
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # ----------------------------------------------------------------
-HEROKU_API_KEY = getenv("HEROKU_API_KEY","57abb203-6a89-4e8d-b48a-b86d544cca6f")
+HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
@@ -55,7 +55,7 @@ UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
     "https://github.com/VIPBOLTE/GOKUMUSIC.git",
 )
-UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "GOKU")
+UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # ----------------------------------------------------------------
