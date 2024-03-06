@@ -2,7 +2,7 @@ from GOKUMUSIC.core.bot import GOKU
 from GOKUMUSIC.core.dir import dirr
 from GOKUMUSIC.core.git import git
 from GOKUMUSIC.core.userbot import Userbot
-from GOKUMUSIC.misc import dbb, heroku
+from GOKUMUSIC.music import dbb, heroku
 
 from SafoneAPI import SafoneAPI
 from .logging import LOGGER
