@@ -24,7 +24,7 @@
       },
       "BOT_TOKEN": {
         "description": "𝐆𝐄𝐓 𝐁𝐎𝐓 𝐓𝐎𝐊𝐄𝐍 𝐅𝐑𝐎𝐌 𝐁𝐎𝐓 𝐅𝐀𝐓𝐇𝐄𝐑",
-        "value": "",
+        "value": "6623411485:AAEK52ZpaNzb2o_kqzz4AhJBbzMTTQOcIJA",
         "required": true
       },
       "MONGO_DB_URI": {
@@ -49,7 +49,7 @@
       },
       "HEROKU_APP_NAME": {
         "description": "𝐅𝐈𝐋𝐋 𝐇𝐄𝐑𝐄 𝐘𝐎𝐔𝐑 𝐀𝐏𝐏 𝐍𝐀𝐌𝐄 𝐖𝐇𝐈𝐂𝐇 𝐅𝐈𝐋𝐋𝐄𝐃 𝐈𝐍 𝐘𝐎𝐈𝐑 𝐅𝐈𝐑𝐒𝐓 𝐋𝐈𝐍𝐄 (𝐀𝐏𝐏 𝐍𝐀𝐌𝐄).",
-        "value": "",
+        "value": "mako",
         "required": false
       },
       "AUTO_GCAST": {
