@@ -1,9 +1,9 @@
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from DAXXMUSIC import app
-from DAXXMUSIC.misc import SUDOERS, db
-from DAXXMUSIC.utils.database import (
+from GOKUMUSIC import app
+from GOKUMUSIC.music import SUDOERS, db
+from GOKUMUSIC.utils.database import (
     get_authuser_names,
     get_cmode,
     get_lang,
