@@ -1,4 +1,4 @@
-from GOKUMUSIC.core.bot import DAXX
+from GOKUMUSIC.core.bot import GOKU
 from GOKUMUSIC.core.dir import dirr
 from GOKUMUSIC.core.git import git
 from GOKUMUSIC.core.userbot import Userbot
