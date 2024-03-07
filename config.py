@@ -56,8 +56,8 @@ UPSTREAM_REPO = getenv(
     "https://github.com/VIPBOLTE/GOKUMUSIC",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
-GIT_TOKEN = getenv("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"
-    "GIT_TOKEN", None
+GIT_TOKEN = getenv("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", 
+    "GIT_TOKEN"
 )  # ----------------------------------------------------------------
 # -------------------------------------------------------------------
 # --------------------------------------------------------------------
