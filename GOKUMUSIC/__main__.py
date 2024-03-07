@@ -42,7 +42,7 @@ async def init():
     try:
         await GOKU.stream_call("https://telegra.ph/file/289cb2d7166b7e2d6c1a8.mp4")
     except NoActiveGroupCall:
-        LOGGER("DAXXMUSIC").error(
+        LOGGER("GOKUMUSIC").error(
             "𝗣𝗹𝗭 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧\𝗖𝗛𝗔𝗡𝗡𝗘𝗟\n\n𝗚𝗢𝗞𝗨 𝗕𝗢𝗧 𝗦𝗧𝗢𝗣........"
         )
         exit()
