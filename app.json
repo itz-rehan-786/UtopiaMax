@@ -39,7 +39,7 @@
       },
       "STRING_SESSION": {
         "description": "𝐅𝐈𝐋𝐋 𝐇𝐄𝐑𝐄 𝐀  𝐏𝐘𝐑𝐎𝐆𝐑𝐀𝐌 V2 𝐒𝐓𝐑𝐈𝐍𝐆 𝐒𝐄𝐒𝐒𝐈𝐎𝐍, 𝐈𝐅 𝐄𝐑𝐑𝐎𝐑 𝐓𝐇𝐄𝐍 𝐒𝐄𝐍𝐃 𝐄𝐑𝐑𝐎𝐑 𝐒𝐒 𝐓𝐎 𝐑𝐄𝐏𝐎 𝐎𝐖𝐍𝐄𝐑.( 𝐆𝐄𝐓 𝐅𝐑𝐎𝐌 = t.me/VIP_STRING_ROBOT ) . ",
-        "value": "BQFbytYAp2CCcglLFCbxIfF7SJJFBKX9jGLXng8gz1wJapcIdGia1E7D-YtrMmfBdfqEc2KOn3O7d3hn_FEyxShrIfRuXO2ys0fqW6DLYm0_17tWnNWKJyoWzmePcBGoMpMOjsZzTVMdw0yuq7rlh66bRNHcC25gPx_oucme9fN2pIhYc6r-JPtMLIKRYTYqsdwgbq566T0-4PX21AtaQJemohLPNZ8Q1SNI-6tf_x3PMAp-4rZ9xJDnSrGY4d2uFOmw_f5vPoZiTf6p4JuMoQ6op363jSUmUU2SVJOzbmXJpyPO0IjT0yPHnT7omrdx4LnYcBZ4u82Q6e-hkWS0_OzI3H5OEgAAAAFrJxyOAA",
+        "value": "BQFbytYAUtVVUESGidpCkiv87euIZfOoj4Or0H4xGIUPbYKWr6RelF43HTh5vpk98nFd_R6ekXKGiCizL4THbIK8cQXoEsFaNEvXhTwL4cz0I9XNHUqUz-zh5XXd9GyOyqsr169pVKSzkHG-LANwzkSnY3wFUkrXz8U1u552O7iIk8A4xuqC3N-FM1_nnJWz6YH4lRiX-b6E35VWHHuzx5vMT0tN060ehHASP0eDX-UI29FhF13CTxculP5KQNBKnLr_Aexi0fsRtKh4oOTv_83DR9XMVZH1IOMjeFm4AnWPeG_OUR_pdASvk6qQHA8g32BDo3Y86ve-2CdxQXuxZpi9slNe9gAAAAFrJxyOAA",
         "required": true
       },
       "HEROKU_API_KEY": {
