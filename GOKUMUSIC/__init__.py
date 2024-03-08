@@ -17,7 +17,7 @@ api = SafoneAPI()
 userbot = Userbot()
 
 
-from platforms import *
+from .platforms import *
 
 Apple = AppleAPI()
 Carbon = CarbonAPI()
