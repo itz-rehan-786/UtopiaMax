@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from GOKUMUSIC import YouTube, app
-from GOKUMUSIC.core.call import DAXX
+from GOKUMUSIC.core.call import GOKU
 from GOKUMUSIC.music import db
 from GOKUMUSIC.utils import AdminRightsCheck, seconds_to_min
 from GOKUMUSIC.utils.inline import close_markup
