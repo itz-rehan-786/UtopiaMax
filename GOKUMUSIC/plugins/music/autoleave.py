@@ -5,7 +5,7 @@ from pyrogram.enums import ChatType
 
 import config
 from GOKUMUSIC import app
-from GOKUMUSIC.core.call import DAXX, autoend
+from GOKUMUSIC.core.call import GOKU, autoend
 from GOKUMUSIC.utils.database import get_client, is_active_chat, is_autoend
 
 
