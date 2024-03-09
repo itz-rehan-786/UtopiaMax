@@ -8,7 +8,7 @@ from GOKUMUSIC import app
 
 
 api = ApiClient()
-Models = api.getModels()['models']['image']
+Models = api.getModels()[models],[image]
 
 Database = {}
 
