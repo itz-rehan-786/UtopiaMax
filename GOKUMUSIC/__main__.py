@@ -38,7 +38,7 @@ async def init():
         importlib.import_module("GOKUMUSIC.plugins" + all_module)
     LOGGER("GOKUMUSIC.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
     await userbot.start()
-    await DAXX.start()
+    await GOKU.start()
     try:
         await GOKU.stream_call("https://telegra.ph/file/289cb2d7166b7e2d6c1a8.mp4")
     except NoActiveGroupCall:
