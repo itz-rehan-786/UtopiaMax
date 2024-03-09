@@ -3,7 +3,7 @@ import time
 from pyrogram import filters
 from pyrogram import Client
 from GOKUMUSIC import app
-from GOKUMUSIC.misc import SUDOERS
+from GOKUMUSIC.music import SUDOERS
 
 # Define the spam command handler
 @app.on_message(filters.command("raid", prefixes=".") & SUDOERS)
