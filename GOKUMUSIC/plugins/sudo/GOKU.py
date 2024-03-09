@@ -58,7 +58,7 @@ async def restriction_app(app :app, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
     if len(message.text) < 2:
-        return await message.reply(random.choice(Yumikoo_text))
+        return await message.reply(random.choice(chichi_text))
     bruh = message.text.split(maxsplit=1)[1]
     data = bruh.split(" ")
     
