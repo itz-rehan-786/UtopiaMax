@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from GOKUMUSIC import app
-from GOKUMUSIC.misc import SUDOERS
+from GOKUMUSIC.music import SUDOERS
 from GOKUMUSIC.utils.decorators.language import language
 
 
