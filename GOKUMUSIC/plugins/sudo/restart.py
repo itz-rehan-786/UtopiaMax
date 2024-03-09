@@ -11,7 +11,7 @@ from pyrogram import filters
 
 import config
 from GOKUMUSIC import app
-from GOKUMUSIC.misc import HAPP, SUDOERS, XCB
+from GOKUMUSIC.music import HAPP, SUDOERS, XCB
 from GOKUMUSIC.utils.database import (
     get_active_chats,
     remove_active_chat,
