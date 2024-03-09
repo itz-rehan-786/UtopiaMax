@@ -11,7 +11,7 @@ from GOKUMUSIC.utils.goku_ban import admin_filter
 
 
 
-Bulma_text = [
+Chichi_text = [
 "hey please don't disturb me.",
 "who are you",    
 "aap kon ho",
