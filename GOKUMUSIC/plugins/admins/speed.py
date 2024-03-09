@@ -2,8 +2,8 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from GOKUMUSIC import app
-from GOKUMUSIC.core.call import DAXX
-from GOKUMUSIC.misc import SUDOERS, db
+from GOKUMUSIC.core.call import GOKU
+from GOKUMUSIC.music import SUDOERS, db
 from GOKUMUSIC.utils import AdminRightsCheck
 from GOKUMUSIC.utils.database import is_active_chat, is_nonadmin_chat
 from GOKUMUSIC.utils.decorators.language import languageCB
