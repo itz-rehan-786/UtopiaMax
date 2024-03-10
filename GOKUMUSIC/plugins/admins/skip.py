@@ -86,7 +86,7 @@ async def skip(cli, message: Message, _, chat_id):
                     ),
                     reply_markup=close_markup(_),
                 )
-                return await DAXX.stop_stream(chat_id)
+                return await GOKU.stop_stream(chat_id)
             except:
                 return
     queued = check[0]["file"]
@@ -111,7 +111,7 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await DAXX.skip_stream(chat_id, link, video=status, image=image)
+            await GOKU.skip_stream(chat_id, link, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -144,7 +144,7 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await DAXX.skip_stream(chat_id, file_path, video=status, image=image)
+            await GOKU.skip_stream(chat_id, file_path, video=status, image=image)
         except:
             return await mystic.edit_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -164,7 +164,7 @@ async def skip(cli, message: Message, _, chat_id):
         await mystic.delete()
     elif "index_" in queued:
         try:
-            await DAXX.skip_stream(chat_id, videoid, video=status)
+            await GOKU.skip_stream(chat_id, videoid, video=status)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -186,7 +186,7 @@ async def skip(cli, message: Message, _, chat_id):
             except:
                 image = None
         try:
-            await DAXX.skip_stream(chat_id, queued, video=status, image=image)
+            await GOKU.skip_stream(chat_id, queued, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         if videoid == "telegram":
