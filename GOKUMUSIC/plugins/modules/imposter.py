@@ -30,8 +30,8 @@ VEGITA = [
     [
         InlineKeyboardButton(
             text="ᴀᴅᴅ ᴍᴇ",
-            url=f"https://t.me/NexikoBot?startgroup=true"),
-        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇ", url=f"https://t.me/DAXXSUPPORT")
+            url=f"https://t.me/Kiyansh3_bot?startgroup=true"),
+        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇ", url=f"https://t.me/goku_groupz")
     ],
 ]
 
