@@ -196,7 +196,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         reply_markup=close_markup(_),
                     )
                     try:
-                        return await DAXX.stop_stream(chat_id)
+                        return await GOKU.stop_stream(chat_id)
                     except:
                         return
             except:
@@ -210,7 +210,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         ),
                         reply_markup=close_markup(_),
                     )
-                    return await DAXX.stop_stream(chat_id)
+                    return await GOKU.stop_stream(chat_id)
                 except:
                     return
         else:
@@ -278,7 +278,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 image = None
             try:
-                await DAXX.skip_stream(chat_id, file_path, video=status, image=image)
+                await GOKU.skip_stream(chat_id, file_path, video=status, image=image)
             except:
                 return await mystic.edit_text(_["call_6"])
             button = stream_markup(_, chat_id)
