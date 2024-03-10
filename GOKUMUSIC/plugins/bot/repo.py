@@ -10,7 +10,14 @@ start_txt = """**
 ✪ ωεℓ¢σмє ƒσя мя gσкυ яєρσѕ ✪
 @app.on_message(filters.command("repo"))
 async def start(_, msg):
-
+buttons = [
+        [ 
+          InlineKeyboardButton("𝗔𝗗𝗗 𝗠𝗘", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+        ],
+        [
+          InlineKeyboardButton("𝗛𝗘𝗟𝗣", url="https://t.me/goku_groupz"),
+          InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/Zindagi_hai_tere_nal"),
+          ],
 
     await msg.reply_photo(
         photo="https://telegra.ph/file/eae68a6b6422567fe9971.mp4",
