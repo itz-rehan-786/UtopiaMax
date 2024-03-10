@@ -20,7 +20,7 @@ async def ping_com(client, message: Message, _):
         video="https://graph.org/file/5690109178f081adf464d.mp4",
         caption=_["ping_1"].format(app.mention),
     )
-    pytgping = await DAXX.ping()
+    pytgping = await GOKU.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(
