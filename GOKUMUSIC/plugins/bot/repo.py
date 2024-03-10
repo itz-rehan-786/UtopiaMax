@@ -10,17 +10,12 @@ start_txt = """**
 ✪ ωεℓ¢σмє ƒσя мя gσкυ яєρσѕ ✪
 @app.on_message(filters.command("repo"))
 async def start(_, msg):
-    buttons = [
-        [ 
-          InlineKeyboardButton("𝗬𝗘 𝗟𝗘 𝗟𝗢", url=f"https://telegra.ph/file/eae68a6b6422567fe9971.mp4")
-        ]
-     
-    ]
-    
+
+
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await msg.reply_photo(
-        photo="https://telegra.ph/file/a0c824b3ad40e8bd86db7.jpg",
+    await msg.reply_video(
+        video="https://telegra.ph/file/eae68a6b6422567fe9971.mp4",
         caption=start_txt,
         reply_markup=reply_markup
     )
