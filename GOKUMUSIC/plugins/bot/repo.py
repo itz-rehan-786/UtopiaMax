@@ -12,8 +12,6 @@ start_txt = """**
 async def start(_, msg):
 
 
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
     await msg.reply_video(
         video="https://telegra.ph/file/eae68a6b6422567fe9971.mp4",
         caption=start_txt,
