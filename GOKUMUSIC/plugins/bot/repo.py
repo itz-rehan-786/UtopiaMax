@@ -12,8 +12,8 @@ start_txt = """**
 async def start(_, msg):
 
 
-    await msg.reply_video(
-        video="https://telegra.ph/file/eae68a6b6422567fe9971.mp4",
+    await msg.reply_photo(
+        photo="https://telegra.ph/file/eae68a6b6422567fe9971.mp4",
         caption=start_txt,
         reply_markup=reply_markup
     )
@@ -34,7 +34,7 @@ async def repo(_, message):
             list_of_users += f"{count}. [{user['login']}]({user['html_url']})\n"
             count += 1
 
-        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://github.com/DAXXTEAM/DAXXMUSIC) | [𝖦𝖱𝖮𝖴𝖯](https://t.me/HEROKUFREECC)
+        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://github.com/VIPBOLTE/GOKUMUSIC.git) | [𝖦𝖱𝖮𝖴𝖯](https://t.me/channelz_k)
 | 𝖢𝖮𝖭𝖳𝖱𝖨𝖡𝖴𝖳𝖮𝖱𝖲 |
 ----------------
 {list_of_users}"""
