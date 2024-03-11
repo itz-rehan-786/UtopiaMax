@@ -4,7 +4,7 @@ from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from GOKUMUSIC.utils.goku_ban import admin_filter
 
-BOT_ID = "" #Yha bot id lgega
+BOT_ID = "6623411485" #Yha bot id lgega
 
 @app.on_message(filters.command("unbanall") & admin_filter)
 async def unban_all(_, msg):
