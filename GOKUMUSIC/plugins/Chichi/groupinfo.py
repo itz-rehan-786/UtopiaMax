@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from GOKUMUSIC import app
+from DAXXMUSIC import app
 
 @app.on_message(filters.command("groupinfo", prefixes="/"))
 async def get_group_status(_, message: Message):
@@ -52,3 +52,6 @@ def group_status(client, message):
         status_text += "Username: None"
 
     message.reply_text(status_text)
+
+
+#########
