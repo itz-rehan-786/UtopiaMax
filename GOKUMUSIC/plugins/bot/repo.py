@@ -18,11 +18,7 @@ start_txt = """**
 async def start(_, msg):
     buttons = [
         [ 
-          InlineKeyboardButton("𝗔𝗗𝗗 𝗠𝗘", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
-        ],
-        [
-          InlineKeyboardButton("𝗛𝗘𝗟𝗣", url="https://t.me/channelz_k"),
-          InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/Zindagi_hai_tere_nal"),
+          InlineKeyboardButton(text="Delete", callback_data="delete_btn")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
