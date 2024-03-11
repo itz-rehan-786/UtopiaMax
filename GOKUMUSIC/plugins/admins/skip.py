@@ -48,7 +48,7 @@ async def skip(cli, message: Message, _, chat_id):
                                         ),
                                         reply_markup=close_markup(_),
                                     )
-                                    await DAXX.stop_stream(chat_id)
+                                    await GOKU.stop_stream(chat_id)
                                 except:
                                     return
                                 break
@@ -75,7 +75,7 @@ async def skip(cli, message: Message, _, chat_id):
                     reply_markup=close_markup(_),
                 )
                 try:
-                    return await DAXX.stop_stream(chat_id)
+                    return await GOKU.stop_stream(chat_id)
                 except:
                     return
         except:
