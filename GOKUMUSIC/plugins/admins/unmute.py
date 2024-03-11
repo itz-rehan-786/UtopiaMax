@@ -1,4 +1,4 @@
-from GOKUMUSIC import app
+from DAXXMUSIC import app
 from pyrogram import filters,enums
 from pyrogram.types import ChatPermissions 
 from GOKUMUSIC.utils.goku_ban import admin_filter
