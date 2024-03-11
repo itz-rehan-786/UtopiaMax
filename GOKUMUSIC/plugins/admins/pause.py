@@ -1,8 +1,8 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app
-from DAXXMUSIC.core.call import DAXX
+from GOKUMUSIC import app
+from GOKUMUSIC.core.call import GOKU
 from GOKUMUSIC.utils.database import is_music_playing, music_off
 from GOKUMUSIC.utils.decorators import AdminRightsCheck
 from GOKUMUSIC.utils.inline import close_markup
