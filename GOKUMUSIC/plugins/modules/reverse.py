@@ -16,7 +16,7 @@ API_URL: str = "https://sasta-api.vercel.app/googleLensSearch"
 async_client: httpx.AsyncClient = httpx.AsyncClient(timeout=120)
 
 class STRINGS:
-    REPLY_TO_MEDIA: str = "**ᴘʟᴇᴡsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛʜᴀᴛ ᴄᴏɴᴛᴀɪɴs ᴏɴᴇ ᴏғ ᴛʜᴇ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀ ᴛʏᴘᴇs, sᴜᴄʜ ᴀs ᴀ ᴘʜᴏᴛᴏ ᴏʀ ɪᴍᴀɢᴇ ᴀɴᴅ ғɪʟᴇ.**"
+    REPLY_TO_MEDIA: str = "**ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛʜᴀᴛ ᴄᴏɴᴛᴀɪɴs ᴏɴᴇ ᴏғ ᴛʜᴇ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀ ᴛʏᴘᴇs, sᴜᴄʜ ᴀs ᴀ ᴘʜᴏᴛᴏ ᴏʀ ɪᴍᴀɢᴇ ᴀɴᴅ ғɪʟᴇ.**"
     UNSUPPORTED_MEDIA_TYPE: str = "⚠️ **ᴜɴsᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀ ᴛʏᴘᴇ !**\n**ᴘʟᴇᴡsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛʜᴀᴛ ᴄᴏɴᴛᴀɪɴs ᴏɴᴇ ᴏғ ᴛʜᴇ sᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴇᴅɪᴀ ᴛʏᴘᴇs, sᴜᴄʜ ᴀs ᴀ ᴘʜᴏᴛᴏ ᴏʀ ɪᴍᴀɢᴇ ᴀɴᴅ ғɪʟᴇ.**"
     
     DOWNLOADING_MEDIA: str = "⏳ **ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴍᴇᴅɪᴀ...**"
