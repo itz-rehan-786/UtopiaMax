@@ -1,51 +1,51 @@
-import random
-from pyrogram import filters
-from GOKUMUSIC import app
-from GOKUMUSIC import *
-from ... import *
-import config
-
-from ...logging import LOGGER
-
-from GOKUMUSIC import app, userbot
-from GOKUMUSIC.core.userbot import *
-
-import asyncio
-
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from config import OWNER_ID
-
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from dotenv import load_dotenv
+import config
 from GOKUMUSIC.core.userbot import Userbot
+from GOKUMUSIC import app
 from datetime import datetime
-
+from GOKUMUSIC.utils.database import get_assistant
 # Assuming Userbot is defined elsewhere
-userbot = Userbot()
 
+last_checked_time = None
 
-BOT_LIST = ["Kiyansh3_bot"] # Yaha hme hmne jitne bhi bot bnaye hai unke user dalne hai without @ke *
+@app.on_message(filters.command("botschk") & filters.group)
+async def check_bots_command(client, message):
+    global last_checked_time
+    try:
+        # Start the Pyrogram client
+        userbot = await get_assistant(message.chat.id)
 
-@app.on_message(filters.command("botschk") & filters.user(OWNER_ID))
-async def bots_chk(_, message):
-    msg = await message.reply_photo(photo="https://telegra.ph/file/4d303296e4fac9a40ea07.jpg", caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**")
-    response = "**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ**\n\n"
-    for bot_username in BOT_LIST:
-        try:
-            bot = await app.get_users(bot_username)
-            bot_id = bot.id
-            await asyncio.sleep(0.5)
-            bot_info = await app.send_message(bot_id, "/start")
-            await asyncio.sleep(3)
-            async for bot_message in app.get_chat_history(bot_id, limit=1):
-                if bot_message.from_user.id == bot_id:
-                    response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏɴʟɪɴᴇ ✨**\n\n"
-                else:
-                    response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏғғʟɪɴᴇ ❄**\n\n"
-        except Exception:
-            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ❌**\n"
+        # Get current time before sending messages
+        start_time = datetime.now()
+
+        # Extract bot username from command
+        command_parts = message.command
+        if len(command_parts) == 2:
+            bot_username = command_parts[1]
+            response = ""  # Define response variable
+            try:
+                bot = await userbot.get_users(bot_username)
+                bot_id = bot.id
+                await asyncio.sleep(0.5)
+                await userbot.send_message(bot_id, "/start")
+                await asyncio.sleep(3)
+                # Check if bot responded to /start message
+                async for bot_message in userbot.get_chat_history(bot_id, limit=1):
+                    if bot_message.from_user.id == bot_id:
+                        response += f"╭⎋ {bot.mention}\n l\n╰⊚ **sᴛᴀᴛᴜs: ᴏɴʟɪɴᴇ ✨**\n\n"
+                    else:
+                        response += f"╭⎋ [{bot.mention}](tg://user?id={bot.id})\n l\n╰⊚ **sᴛᴀᴛᴜs: ᴏғғʟɪɴᴇ ❄**\n\n"
+            except Exception:
+                response += f"╭⎋ {bot_username}\n l\n╰⊚ **ᴇɪᴛʜᴇʀ ʏᴏᴜ ʜᴀᴠᴇ ɢɪᴠᴇɴ ᴡʀᴏɴɢ ᴜsᴇʀɴᴀᴍᴇ ᴏᴛʜᴇʀᴡɪsᴇ ɪ ᴀᴍ ᴜɴᴀʙʟᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴅᴜᴇ ᴛᴏ ʟɪᴍɪᴛᴀᴛɪᴏɴ. **\n\n"
+            # Update last checked time
+            last_checked_time = start_time.strftime("%Y-%m-%d")
+            await message.reply_text(f"{response}⏲️ ʟᴀsᴛ ᴄʜᴇᴄᴋ: {last_checked_time}")
+        else:
+            await message.reply_text("ɪɴᴠᴀʟɪᴅ ᴄᴏᴍᴍᴀɴᴅ ғᴏʀᴍᴀᴛ.\n\nᴘʟᴇᴀsᴇ ᴜsᴇ /botschk Bot_Username\n\nʟɪᴋᴇ :- `/botschk @TG_VC_BOT`")
+    except Exception as e:
+        await message.reply_text(f"An error occurred: {e}")
+        print(f"Error occurred during /botschk command: {e}")
     
-    await msg.edit_text(response)
-                
