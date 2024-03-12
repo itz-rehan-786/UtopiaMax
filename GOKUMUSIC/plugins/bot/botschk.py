@@ -26,7 +26,7 @@ from datetime import datetime
 userbot = Userbot()
 
 
-BOT_LIST = [""] # Yaha hme hmne jitne bhi bot bnaye hai unke user dalne hai without @ke *
+BOT_LIST = ["Kiyansh3_bot"] # Yaha hme hmne jitne bhi bot bnaye hai unke user dalne hai without @ke *
 
 @app.on_message(filters.command("botschk") & filters.user(OWNER_ID))
 async def bots_chk(_, message):
