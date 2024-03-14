@@ -7,7 +7,7 @@ from GOKUMUSIC.utils.database import get_lang
 from GOKUMUSIC.utils.decorators.language import LanguageStart, languageCB
 from GOKUMUSIC.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
-from strings import get_string, helpers
+from Strings import get_string, helpers
 from GOKUMUSIC.utils.stuffs.buttons import BUTTONS
 from GOKUMUSIC.utils.stuffs.helper import Helper
 
