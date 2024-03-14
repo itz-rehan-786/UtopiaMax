@@ -6,7 +6,7 @@ from GOKUMUSIC import app
 from GOKUMUSIC.utils.database import get_lang, set_lang
 from GOKUMUSIC.utils.decorators import ActualAdminCB, language, languageCB
 from config import BANNED_USERS
-from strings import get_string, languages_present
+from Strings import get_string, languages_present
 
 
 def lanuages_keyboard(_):
