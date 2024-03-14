@@ -39,7 +39,7 @@ from config import (
     confirmer,
     votemode,
 )
-from strings import get_string
+from Strings import get_string
 
 checker = {}
 upvoters = {}
