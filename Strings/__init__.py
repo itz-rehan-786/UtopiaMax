@@ -8,7 +8,7 @@ languages_present = {}
 
 
 def get_string(lang: str):
-    return languages[langs]
+    return languages[lang]
 
 
 for filename in os.listdir(r"./Strings/languages/"):
