@@ -9,7 +9,7 @@ from GOKUMUSIC.utils.database import (
     maintenance_off,
     maintenance_on,
 )
-from strings import get_string
+from Strings import get_string
 
 
 @app.on_message(filters.command(["maintenance"]) & SUDOERS)
