@@ -12,21 +12,21 @@ def get_string(lang: str):
 
 
 for filename in os.listdir(r"./Strings/languages/"):
-    if "english" not in languages:
-        languages["english"] = yaml.safe_load(
-            open(r"./Strings/languages/english.yml", encoding="utf8")
+    if "en" not in languages:
+        languages["en"] = yaml.safe_load(
+            open(r"./Strings/languages/en.yml", encoding="utf8")
         )
-        languages_present["english"] = languages["english"]["name"]
+        languages_present["en"] = languages["en"]["name"]
     if filename.endswith(".yml"):
         language_name = filename[:-4]
-        if language_name == "english":
+        if language_name == "en":
             continue
         languages[language_name] = yaml.safe_load(
             open(r"./Strings/languages/" + filename, encoding="utf8")
         )
-        for item in languages["english"]:
+        for item in languages["en"]:
             if item not in languages[language_name]:
-                languages[language_name][item] = languages["english"][item]
+                languages[language_name][item] = languages["en"][item]
     try:
         languages_present[language_name] = languages[language_name]["name"]
     except:
