@@ -26,7 +26,7 @@ BULMA = [
 ]
 
 
-BULMA = [
+VEGITA = [
     [
         InlineKeyboardButton(
             text="ᴀᴅᴅ ᴍᴇ",
@@ -112,7 +112,7 @@ async def chk_usr(_, message: Message):
             message.from_user.last_name,
         )
     if msg != "":
-        await message.reply_photo(random.choice(MISHI), caption=msg, reply_markup=InlineKeyboardMarkup(ROY),)
+        await message.reply_photo(random.choice(BULMA), caption=msg, reply_markup=InlineKeyboardMarkup(VEGITA),)
 
 
 @app.on_message(filters.group & filters.command("imposter") & ~filters.bot & ~filters.via_bot)
