@@ -10,40 +10,45 @@ import pyrogram
 from uuid import uuid4
 from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 
+import cv2
+import numpy as np
 
 @app.on_message(filters.reply & filters.command("upscale"))
 async def upscale_image(app, message):
     try:
         if not message.reply_to_message or not message.reply_to_message.photo:
-            await message.reply_text("**ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ɪᴍᴀɢᴇ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ɪᴛ.**")
+            await message.reply_text("Please reply to an image to upscale it.")
             return
 
         image = message.reply_to_message.photo.file_id
         file_path = await app.download_media(image)
 
-        with open(file_path, "rb") as image_file:
-            f = image_file.read()
+        # Read the image
+        img = cv2.imread(file_path)
 
-        b = base64.b64encode(f).decode("utf-8")
+        # Upscale the image
+        upscaled_img = cv2.resize(img, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 
-        async with httpx.AsyncClient() as http_client:
-            response = await http_client.post(
-                "https://api.qewertyy.me/upscale", data={"image_data": b}, timeout=None
-            )
+        # Apply sharpening filter
+        kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+        sharpened_img = cv2.filter2D(upscaled_img, -1, kernel)
 
-        with open("upscaled.png", "wb") as output_file:
-            output_file.write(response.content)
+        # Save the sharpened image
+        sharpened_file_path = "sharpened.png"
+        cv2.imwrite(sharpened_file_path, sharpened_img)
 
-        await client.send_document(
+        # Send the sharpened image
+        await app.send_photo(
             message.chat.id,
-            document="upscaled.png",
-            caption="**ʜᴇʀᴇ ɪs ᴛʜᴇ ᴜᴘsᴄᴀʟᴇᴅ ɪᴍᴀɢᴇ!**",
+            photo=sharpened_file_path,
+            caption="Here is the upscaled and sharpened image!",
         )
 
-    except Exception as e:
-        print(f"**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ**: {e}")
-        await message.reply_text("**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ**.")
+        # Clean up files
+        os.remove(file_path)
+        os.remove(sharpened_file_path)
 
+    except Exception as e:
 
 # ------------
 
