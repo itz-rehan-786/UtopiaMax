@@ -24,7 +24,7 @@ from GOKUMUSIC.utils.files import (
     upload_document,
 )
 
-from DAXXMUSIC.utils.stickerset import (
+from GOKUMUSIC.utils.stickerset import (
     add_sticker_to_set,
     create_sticker,
     create_sticker_set,
