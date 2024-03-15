@@ -26,7 +26,7 @@ BULMA = [
 ]
 
 
-VEGITA = [
+BULMA = [
     [
         InlineKeyboardButton(
             text="ᴀᴅᴅ ᴍᴇ",
