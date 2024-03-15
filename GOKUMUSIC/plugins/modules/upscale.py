@@ -51,3 +51,42 @@ async def upscale_image(app, message):
     except Exception as e:
         print(f"Failed to upscale and sharpen the image: {e}")
         await message.reply_text("**Failed to upscale and sharpen the image. Please try again later.**")
+
+
+
+@app.on_message(filters.command("smooth"))
+async def smooth_image(app, message):
+    try:
+        # Check if the replied message is an image
+        if not message.reply_to_message or not message.reply_to_message.photo:
+            await message.reply_text("Please reply to an image to smooth it.")
+            return
+
+        # Download the image
+        image = await app.download_media(message.reply_to_message.photo.file_id)
+
+        # Read the image
+        img = cv2.imread(image)
+
+        # Apply Gaussian blur for smoothing
+        smoothed_img = cv2.GaussianBlur(img, (15, 15), 0)
+
+        # Save the smoothed image
+        smoothed_file_path = "smoothed_image.png"
+        cv2.imwrite(smoothed_file_path, smoothed_img)
+
+        # Send the smoothed image
+        await app.send_photo(
+            chat_id=message.chat.id,
+            photo=smoothed_file_path,
+            caption="Here is the smoothed image!",
+        )
+
+        # Clean up files
+        os.remove(image)
+        os.remove(smoothed_file_path)
+
+    except Exception as e:
+        print(f"Failed to smooth the image: {e}")
+        await message.reply_text("Failed to smooth the image. Please try again later.")
+
