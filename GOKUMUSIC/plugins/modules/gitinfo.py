@@ -1,15 +1,15 @@
 import asyncio, os, time, aiohttp
 import aiohttp
 from pyrogram import filters
-from daxxhub import daxxhub as papagoku
+from GOKUhub import GOKUhub as papaGOKU
 from GOKUMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 ###
-@app.on_message(filters.command("gokuhub"))
-async def daxxhub(_, message):
-    text = message.text[len("/gokuhub") :]
-    papaGOKU(f"{text}").save(f"gokuhub_{message.from_user.id}.png")
+@app.on_message(filters.command("GOKUhub"))
+async def GOKUhub(_, message):
+    text = message.text[len("/GOKUhub") :]
+    papaGOKU(f"{text}").save(f"GOKUhub_{message.from_user.id}.png")
     await message.reply_photo(f"hub_{message.from_user.id}.png")
     os.remove(f"gokuhub_{message.from_user.id}.png")
 ####
