@@ -1,7 +1,7 @@
 import asyncio, os, time, aiohttp
 import aiohttp
 from pyrogram import filters
-from GOKUhub import GOKUhub as papaGOKU
+from daxxhub import daxxhub as papaGOKU
 from GOKUMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
