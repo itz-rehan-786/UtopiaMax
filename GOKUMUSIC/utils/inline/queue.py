@@ -4,7 +4,7 @@ from GOKUMUSIC.utils.formatters import time_to_seconds
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-def queuemarkup(
+def queue_markup(
     _,
     DURATION,
     CPLAY,
