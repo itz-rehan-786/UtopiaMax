@@ -5,24 +5,24 @@ import asyncio
 from pyrogram import client, filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
-from LOVEMUSIC.utils.database import get_assistant
+from GOKUMUSIC.utils.database import get_assistant
 import config
-from LOVEMUSIC import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from LOVEMUSIC.core.call import LOVE
-from LOVEMUSIC.misc import SUDOERS
-from LOVEMUSIC.utils import seconds_to_min, time_to_seconds
-from LOVEMUSIC.utils.channelplay import get_channeplayCB
-from LOVEMUSIC.utils.decorators.language import languageCB
-from LOVEMUSIC.utils.decorators.play import PlayWrapper
-from LOVEMUSIC.utils.formatters import formats
-from LOVEMUSIC.utils.inline import (
+from GOKUMUSIC import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
+from GOKUMUSIC.core.call import GOKU
+from GOKUMUSIC.misc import SUDOERS
+from GOKUMUSIC.utils import seconds_to_min, time_to_seconds
+from GOKUMUSIC.utils.channelplay import get_channeplayCB
+from GOKUMUSIC.utils.decorators.language import languageCB
+from GOKUMUSIC.utils.decorators.play import PlayWrapper
+from GOKUMUSIC.utils.formatters import formats
+from GOKUMUSIC.utils.inline import (
     botplaylist_markup,
     livestream_markup,
     playlist_markup,
     slider_markup,
     track_markup,
 )
-from LOVEMUSIC.utils.database import (
+from GOKUMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
@@ -30,10 +30,10 @@ from LOVEMUSIC.utils.database import (
     is_banned_user,
     is_on_off,
 )
-from LOVEMUSIC.utils.logger import play_logs
+from GOKUMUSIC.utils.logger import play_logs
 from config import BANNED_USERS, lyrical
 from time import time
-from LOVEMUSIC.utils.extraction import extract_user
+from GOKUMUSIC.utils.extraction import extract_user
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
@@ -363,7 +363,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await LOVE.stream_call(url)
+                await GOKU.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(_["black_9"])
                 return await app.send_message(
@@ -582,8 +582,8 @@ async def play_music(client, CallbackQuery, _):
     return await mystic.delete()
 
 
-@app.on_callback_query(filters.regex("LOVEmousAdmin") & ~BANNED_USERS)
-async def LOVEmous_check(client, CallbackQuery):
+@app.on_callback_query(filters.regex("GOKUmousAdmin") & ~BANNED_USERS)
+async def GOKUmous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
             "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
@@ -593,7 +593,7 @@ async def LOVEmous_check(client, CallbackQuery):
         pass
 
 
-@app.on_callback_query(filters.regex("VIPPlaylists") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("GOKUPlaylists") & ~BANNED_USERS)
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
@@ -737,14 +737,14 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from LOVEMUSIC import Carbon, YouTube, app
-from LOVEMUSIC.core.call import LOVE
-from LOVEMUSIC.misc import db
-from LOVEMUSIC.utils.database import add_active_video_chat, is_active_chat
-from LOVEMUSIC.utils.exceptions import AssistantErr
-from LOVEMUSIC.utils.inline import aq_markup, queuemarkup, close_markup, stream_markup, stream_markup2, panel_markup_4
-from LOVEMUSIC.utils.pastebin import LOVEBin
-from LOVEMUSIC.utils.stream.queue import put_queue, put_queue_index
+from GOKUMUSIC import Carbon, YouTube, app
+from GOKUMUSIC.core.call import GOKU
+from GOKUMUSIC.misc import db
+from GOKUMUSIC.utils.database import add_active_video_chat, is_active_chat
+from GOKUMUSIC.utils.exceptions import AssistantErr
+from GOKUMUSIC.utils.inline import aq_markup, queuemarkup, close_markup, stream_markup, stream_markup2, panel_markup_4
+from GOKUMUSIC.utils.pastebin import GOKUBin
+from GOKUMUSIC.utils.stream.queue import put_queue, put_queue_index
 from youtubesearchpython.__future__ import VideosSearch
 
 
@@ -849,7 +849,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await LOVEBin(msg)
+            link = await GOKUBin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -901,7 +901,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await LOVE.join_call(
+            await GOKU.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -959,7 +959,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await LOVE.join_call(chat_id, original_chat_id, file_path, video=None)
+            await GOKU.join_call(chat_id, original_chat_id, file_path, video=None)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -1067,7 +1067,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await LOVE.join_call(
+            await GOKU.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -1125,7 +1125,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await LOVE.join_call(
+            await GOKU.join_call(
                 chat_id,
                 original_chat_id,
                 link,
