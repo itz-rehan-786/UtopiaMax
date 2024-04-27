@@ -2,9 +2,9 @@ import math
 from typing import Union
 from pyrogram.types import InlineKeyboardButton
 
-from LOVEMUSIC.utils.formatters import time_to_seconds
+from GOKUMUSIC.utils.formatters import time_to_seconds
 
-from LOVEMUSIC import app
+from GOKUMUSIC import app
 
 def track_markup(_, user_id, channel, fplay):
     buttons = [
