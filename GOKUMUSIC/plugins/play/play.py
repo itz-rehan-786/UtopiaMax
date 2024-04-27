@@ -8,7 +8,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 from GOKUMUSIC.utils.database import get_assistant
 import config
 from GOKUMUSIC import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from GOKUMUSIC.core.call import LOVE
+from GOKUMUSIC.core.call import GOKU
 from GOKUMUSIC.misc import SUDOERS
 from GOKUMUSIC.utils import seconds_to_min, time_to_seconds
 from GOKUMUSIC.utils.channelplay import get_channeplayCB
@@ -764,7 +764,7 @@ async def stream(
     if not result:
         return
     if forceplay:
-        await LOVE.force_stop_stream(chat_id)
+        await GOKU.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['play_19']}\n\n"
         count = 0
@@ -812,7 +812,7 @@ async def stream(
                 except:
                     
                     os.system(f"kill -9 {os.getpid()} && bash start")
-                await LOVE.join_call(
+                await GOKU.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -1011,7 +1011,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await LOVE.join_call(chat_id, original_chat_id, file_path, video=status)
+            await GOKU.join_call(chat_id, original_chat_id, file_path, video=status)
             await put_queue(
                 chat_id,
                 original_chat_id,
