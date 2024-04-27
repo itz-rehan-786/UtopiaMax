@@ -739,7 +739,7 @@ from pyrogram.types import InlineKeyboardMarkup
 import config
 from GOKUMUSIC import Carbon, YouTube, app
 from GOKUMUSIC.core.call import GOKU
-from GOKUMUSIC.misc import db
+from GOKUMUSIC.music import db
 from GOKUMUSIC.utils.database import add_active_video_chat, is_active_chat
 from GOKUMUSIC.utils.exceptions import AssistantErr
 from GOKUMUSIC.utils.inline import aq_markup, queuemarkup, close_markup, stream_markup, stream_markup2, panel_markup_4
