@@ -9,7 +9,7 @@ from GOKUMUSIC.utils.database import get_assistant
 import config
 from GOKUMUSIC import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from GOKUMUSIC.core.call import GOKU
-from GOKUMUSIC.misc import SUDOERS
+from GOKUMUSIC.music import SUDOERS
 from GOKUMUSIC.utils import seconds_to_min, time_to_seconds
 from GOKUMUSIC.utils.channelplay import get_channeplayCB
 from GOKUMUSIC.utils.decorators.language import languageCB
