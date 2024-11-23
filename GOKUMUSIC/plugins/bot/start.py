@@ -4,6 +4,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
+from edited_messages import handle_edited_message  # Import the edited messages handler
 
 from config import BANNED_USERS, SUPPORT_CHAT, LOGGER_ID
 from GOKUMUSIC import app
@@ -154,3 +155,12 @@ async def welcome(client, message: Message):
 
         except Exception as ex:
             print(f"Error welcoming new members: {ex}")
+
+
+@app.on_message(filters.edited)
+async def edited_message_handler(client, message: Message):
+    # Handle edited messages
+    await handle_edited_message(client, message)
+
+
+app.run()
