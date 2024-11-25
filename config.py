@@ -73,7 +73,7 @@ AUTO_LEAVE_ASSISTANT_TIME = get_env_int("ASSISTANT_LEAVE_TIME", 9000)
 
 # Other configurations
 PLAYLIST_FETCH_LIMIT = get_env_int("PLAYLIST_FETCH_LIMIT", 25)
-STRING_SESSIONS = [
+STRING_SESSION = [
     os.getenv(f"STRING_SESSION{i}", None) for i in range(1, 8)
 ]
 
