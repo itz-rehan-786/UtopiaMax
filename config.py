@@ -1,6 +1,7 @@
 import re
 import os
 from dotenv import load_dotenv
+from pyrogram import filters  # Ensure this is properly imported
 
 # Load environment variables
 load_dotenv()
@@ -105,7 +106,7 @@ def time_to_seconds(time: str) -> int:
 DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 
 # Filters and caches
-BANNED_USERS = filters.user()
+BANNED_USERS = filters.user()  # Ensure filters is properly imported
 adminlist = {}
 lyrical = {}
 votemode = {}
