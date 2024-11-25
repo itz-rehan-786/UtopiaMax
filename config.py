@@ -1,7 +1,7 @@
 import re
 import os
 from dotenv import load_dotenv
-from pyrogram import filters  # Ensure Pyrogram is installed
+from pyrogram import filters  # Ensure Pyrogram is properly installed
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -48,19 +48,13 @@ HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 
 # Git repository settings
-UPSTREAM_REPO = os.getenv(
-    "UPSTREAM_REPO", "https://github.com/VIPBOLTE/GOKUMUSIC.git"
-)
+UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/VIPBOLTE/GOKUMUSIC.git")
 UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 
 # Support links
-SUPPORT_CHANNEL = os.getenv(
-    "SUPPORT_CHANNEL", "https://t.me/Kayto_Official"
-)
-SUPPORT_CHAT = os.getenv(
-    "SUPPORT_CHAT", "https://t.me/Anime_Chat_Group_Community"
-)
+SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/Kayto_Official")
+SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/Anime_Chat_Group_Community")
 
 # Validate support URLs
 if SUPPORT_CHANNEL and not re.match(r"(?:http|https)://", SUPPORT_CHANNEL):
@@ -90,12 +84,10 @@ PLAYLIST_FETCH_LIMIT = get_env_int("PLAYLIST_FETCH_LIMIT", 25)
 
 # Image URLs
 START_IMG_URL = os.getenv(
-    "START_IMG_URL",
-    "https://graph.org/file/364a09ddd47378efaecfb-2d3ae182ccf44e9087.jpg",
+    "START_IMG_URL", "https://graph.org/file/364a09ddd47378efaecfb-2d3ae182ccf44e9087.jpg"
 )
 PING_IMG_URL = os.getenv(
-    "PING_IMG_URL",
-    "https://graph.org/file/35ef624f376e22a0fa1d7-1ea63e464ea9f36fab.jpg",
+    "PING_IMG_URL", "https://graph.org/file/35ef624f376e22a0fa1d7-1ea63e464ea9f36fab.jpg"
 )
 
 # Static image URLs
@@ -113,6 +105,9 @@ STATIC_IMG_URLS = {
 
 # YouTube thumbnail URL format
 YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
+
+# Session strings
+STRING_SESSION = os.getenv("STRING_SESSION", None)
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
