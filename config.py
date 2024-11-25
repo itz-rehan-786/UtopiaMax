@@ -1,11 +1,17 @@
 import re
 import os
+import time
+import logging
 from dotenv import load_dotenv
-from pyrogram import filters  # Ensure Pyrogram is properly installed
+from pyrogram import Client, filters
+from pyrogram.errors import FloodWait
+
+# Initialize logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables from a .env file
 load_dotenv()
-
 
 # Helper function to fetch and validate integer environment variables
 def get_env_int(var_name, default_value):
@@ -145,3 +151,28 @@ lyrical = {}
 votemode = {}
 autoclean = []
 confirmer = {}
+
+# Create a Pyrogram Client
+app = Client(
+    "my_bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
+
+@app.on_message(filters.command("start"))
+def start(client, message):
+    message.reply_text("Bot is now running!")
+
+# Retry logic for API rate limits (FloodWait)
+def send_message_with_retry(client, chat_id, text):
+    try:
+        client.send_message(chat_id, text)
+    except FloodWait as e:
+        logger.warning(f"Flood wait encountered. Sleeping for {e.x} seconds.")
+        time.sleep(e.x)  # Wait for the specified duration
+        send_message_with_retry(client, chat_id, text)  # Retry after the wait
+
+# Run the bot
+if __name__ == "__main__":
+    app.run()
