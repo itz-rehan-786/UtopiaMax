@@ -107,8 +107,11 @@ STATIC_IMG_URLS = {
 YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
 
 # Session strings
-STRING_SESSION = os.getenv("STRING_SESSION", None)
-STRING1 = os.getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", None)
+STRING2 = getenv("STRING_SESSION2", None)
+STRING3 = getenv("STRING_SESSION3", None)
+STRING4 = getenv("STRING_SESSION4", None)
+STRING5 = getenv("STRING_SESSION5", None)
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
