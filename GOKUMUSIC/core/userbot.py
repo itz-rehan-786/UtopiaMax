@@ -136,7 +136,7 @@ class Userbot(Client):
             await self.five.start()
             try:
                 await self.five.join_chat("Kayto_Official") 
-                await self.one.join_chat("Anime_Chat_Group_Community")")
+                await self.one.join_chat("Anime_Chat_Group_Community")
             except:
                 pass
             assistants.append(5)
