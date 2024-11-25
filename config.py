@@ -40,8 +40,17 @@ SONG_DOWNLOAD_DURATION = get_env_int("SONG_DOWNLOAD_DURATION", 9999999)
 SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 9999999)
 
 # Owner and logging
-LOGGER_ID = get_env_int("LOGGER_ID", -1002293581708)
-OWNER_ID = get_env_int("OWNER_ID", 7038202445)
+try:
+    LOGGER_ID = get_env_int("LOGGER_ID", -1002293581708)
+    if not str(LOGGER_ID).startswith("-100"):
+        raise ValueError("LOGGER_ID must start with '-100'.")
+except ValueError as e:
+    raise SystemExit(f"[ERROR] - {e}")
+
+try:
+    OWNER_ID = get_env_int("OWNER_ID", 7038202445)
+except ValueError:
+    raise SystemExit("[ERROR] - OWNER_ID must be a valid integer.")
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
@@ -57,15 +66,11 @@ SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/Kayto_Official")
 SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/Anime_Chat_Group_Community")
 
 # Validate support URLs
-if SUPPORT_CHANNEL and not re.match(r"(?:http|https)://", SUPPORT_CHANNEL):
-    raise SystemExit(
-        "[ERROR] - SUPPORT_CHANNEL URL is invalid. It must start with https://"
-    )
+if SUPPORT_CHANNEL and not re.match(r"^https://", SUPPORT_CHANNEL):
+    raise SystemExit("[ERROR] - SUPPORT_CHANNEL URL must start with https://")
 
-if SUPPORT_CHAT and not re.match(r"(?:http|https)://", SUPPORT_CHAT):
-    raise SystemExit(
-        "[ERROR] - SUPPORT_CHAT URL is invalid. It must start with https://"
-    )
+if SUPPORT_CHAT and not re.match(r"^https://", SUPPORT_CHAT):
+    raise SystemExit("[ERROR] - SUPPORT_CHAT URL must start with https://")
 
 # Spotify credentials
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "Your_Default_Spotify_Client_ID")
@@ -89,6 +94,15 @@ START_IMG_URL = os.getenv(
 PING_IMG_URL = os.getenv(
     "PING_IMG_URL", "https://graph.org/file/35ef624f376e22a0fa1d7-1ea63e464ea9f36fab.jpg"
 )
+
+# Validate URLs for images
+def validate_url(url, var_name):
+    """Validates that a given URL starts with http or https."""
+    if url and not re.match(r"^https?://", url):
+        raise SystemExit(f"[ERROR] - {var_name} must be a valid URL starting with http or https.")
+
+validate_url(START_IMG_URL, "START_IMG_URL")
+validate_url(PING_IMG_URL, "PING_IMG_URL")
 
 # Static image URLs
 STATIC_IMG_URLS = {
@@ -116,8 +130,10 @@ STRING5 = os.getenv("STRING_SESSION5", None)
 # Helper functions
 def time_to_seconds(time: str) -> int:
     """Converts time in 'hh:mm:ss' format to seconds."""
-    return sum(int(x) * 60**i for i, x in enumerate(reversed(time.split(":"))))
-
+    try:
+        return sum(int(x) * 60**i for i, x in enumerate(reversed(time.split(":"))))
+    except ValueError:
+        raise SystemExit("[ERROR] - Time format must be 'hh:mm:ss'.")
 
 # Derived configurations
 DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
