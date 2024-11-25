@@ -87,15 +87,15 @@ PING_IMG_URL = os.getenv(
 
 # Static Image URLs
 STATIC_IMG_URLS = {
-    "PLAYLIST": "https://envs.sh/K-2.jpg",
-    "TELEGRAM_AUDIO": "https://envs.sh/K-2.jpg",
-    "TELEGRAM_VIDEO": "https://envs.sh/K-2.jpg",
-    "STREAM": "https://envs.sh/K-2.jpg",
-    "SOUNDCLOUD": "https://envs.sh/K-2.jpg",
-    "YOUTUBE": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_ARTIST": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_ALBUM": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_PLAYLIST": "https://envs.sh/K-2.jpg",
+    "PLAYLIST_IMG_URL": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_AUDIO_URL": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_VIDEO_URL": "https://envs.sh/K-2.jpg",
+    "STREAM_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SOUNDCLOUD_IMG_URL": "https://envs.sh/K-2.jpg",
+    "YOUTUBE_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ARTIST_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ALBUM_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_PLAYLIST_IMG_URL": "https://envs.sh/K-2.jpg",
 }
 
 # Helper functions
