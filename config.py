@@ -108,6 +108,7 @@ YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
 
 # Session strings
 STRING_SESSION = os.getenv("STRING_SESSION", None)
+STRING1 = os.getenv("STRING_SESSION", None)
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
