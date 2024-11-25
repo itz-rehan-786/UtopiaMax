@@ -23,9 +23,9 @@ def get_env_int(var_name, default_value):
 
 
 # Basic configurations
-API_ID = os.getenv("API_ID", "Your_Default_API_ID")
-API_HASH = os.getenv("API_HASH", "Your_Default_API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "Your_Default_BOT_TOKEN")
+API_ID = os.getenv("API_ID", "")
+API_HASH = os.getenv("API_HASH", "")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 OWNER_USERNAME = os.getenv("OWNER_USERNAME", "Username_Of_Tuhin")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
 BOT_NAME = os.getenv("BOT_NAME", "Utopia")
