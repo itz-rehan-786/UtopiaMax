@@ -7,16 +7,16 @@ from pyrogram import filters
 load_dotenv()
 
 # Basic configurations
-API_ID = os.getenv("API_ID")
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_ID = os.getenv("28928028")
+API_HASH = os.getenv("b097202e877124392f4851d215fa8f3a")
+BOT_TOKEN = os.getenv("7339158179:AAEaxVd1pTxymc_Yeb0X2WzVFS8x4sbcvDw")
 OWNER_USERNAME = os.getenv("OWNER_USERNAME", "Username_Of_Tuhin")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
-BOT_NAME = os.getenv("BOT_NAME")
+BOT_NAME = os.getenv("Utopia")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
 
 # Database configurations
-MONGO_DB_URI = os.getenv("MONGO_DB_URI", None)
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "mongodb+srv://GOKU:MISSBHOPALI@goku.pzzsl8d.mongodb.net/?retryWrites=true&w=majority")
 
 # Limits and durations
 DURATION_LIMIT_MIN = int(os.getenv("DURATION_LIMIT", 17000))
@@ -24,8 +24,8 @@ SONG_DOWNLOAD_DURATION = int(os.getenv("SONG_DOWNLOAD_DURATION", 9999999))
 SONG_DOWNLOAD_DURATION_LIMIT = int(os.getenv("SONG_DOWNLOAD_DURATION_LIMIT", 9999999))
 
 # Owner and logging
-LOGGER_ID = int(os.getenv("LOGGER_ID"))
-OWNER_ID = int(os.getenv("OWNER_ID"))
+LOGGER_ID = int(os.getenv("-1002324830715"))
+OWNER_ID = int(os.getenv("7038202445"))
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
@@ -62,7 +62,7 @@ AUTO_LEAVE_ASSISTANT_TIME = int(os.getenv("ASSISTANT_LEAVE_TIME", 9000))
 # Other configurations
 PLAYLIST_FETCH_LIMIT = int(os.getenv("PLAYLIST_FETCH_LIMIT", 25))
 STRING_SESSIONS = [
-    os.getenv(f"STRING_SESSION{i}", None) for i in range(1, 8)
+    os.getenv(f"STRING_SESSION{i}", "BQGWS8YAsfGFbmabwHKE_DvNcV1mO3AyTJLJnZ3eT3W2ArmQTnQ9ocjWjSuLgRieW5mJps0oIGDcB6YL-KhkB6U9KXuGnV6h7mc6q9IrZR7_9VRtQ9ODUttUe4kpJH8Si3OAXH73ZvqXhUy_YYeDGd_8jtp7tfaHwGb0--iXTg67iluMshTK4qjp7X4Jru_apbTgBItb8hWeXhkWH8BDV_kqnpU2O2eb-LBkfrasGFbrVvFP_15jGbTskzK6PnegefmIwhTBq_QgAjxxD6LIqBiQLq2UI_IcYpsehl_189HMAgiWmvCC8wPkE3UaPfD3IRTPvFw2Zb8CEziR6FI_gspoaviVTgAAAAG-IuuuAA") for i in range(1, 8)
 ]
 
 # Image URLs
