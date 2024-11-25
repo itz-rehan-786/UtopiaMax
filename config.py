@@ -41,7 +41,7 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 
 # Owner and logging
 try:
-    LOGGER_ID = get_env_int("LOGGER_ID", -1002293581708)
+    LOGGER_ID = get_env_int("LOGGER_ID", -1002359323024)
     if not str(LOGGER_ID).startswith("-100"):
         raise ValueError("LOGGER_ID must start with '-100'.")
 except ValueError as e:
