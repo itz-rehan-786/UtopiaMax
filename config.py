@@ -61,7 +61,7 @@ GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 
 # Support links
 SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/Kayto_Official")
-SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/Anime_Chat_Group_Community")
+SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/LOVING_SOCIETY")
 
 # Validate support URLs
 if SUPPORT_CHANNEL and not re.match(r"^https://", SUPPORT_CHANNEL):
