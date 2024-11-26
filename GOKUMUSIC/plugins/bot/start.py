@@ -1,3 +1,4 @@
+import asyncio
 import time
 import random
 from pyrogram import filters
@@ -150,10 +151,12 @@ async def welcome(client, message: Message):
             print(f"Error welcoming new members: {ex}")
 
 
-@app.on_message(filters.edited)
+@app.on_message(filters.text)
 async def edited_message_handler(client, message: Message):
-    # Handle edited messages
-    await handle_edited_message(client, message)
+    if message.edit_date:
+        # Example logic for handling edited messages
+        await message.reply_text(f"Edited message detected: {message.text}")
 
 
-app.run()
+if __name__ == "__main__":
+    app.run()
