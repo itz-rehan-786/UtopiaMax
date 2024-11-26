@@ -1,5 +1,5 @@
-import os
 import re
+import os
 import time
 import logging
 from dotenv import load_dotenv
@@ -27,7 +27,8 @@ def get_env_int(var_name, default_value):
             f"[ERROR] - The environment variable '{var_name}' must be a valid integer. Current value: {value}"
         )
 
-# Configuration Variables
+
+# Basic configurations
 API_ID = os.getenv("API_ID", "")
 API_HASH = os.getenv("API_HASH", "")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
@@ -35,6 +36,8 @@ OWNER_USERNAME = os.getenv("OWNER_USERNAME", "X_STARBOY_KT")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
 BOT_NAME = os.getenv("BOT_NAME", "Utopia")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
+
+# Database configurations
 MONGO_DB_URI = os.getenv("MONGO_DB_URI", "Your_Default_MongoDB_URI")
 
 # Limits and durations
@@ -42,23 +45,11 @@ DURATION_LIMIT_MIN = get_env_int("DURATION_LIMIT", 17000)
 SONG_DOWNLOAD_DURATION = get_env_int("SONG_DOWNLOAD_DURATION", 9999999)
 SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 9999999)
 
-# Group IDs for logging
-try:
-    LOG_GROUP_ID = get_env_int("LOG_GROUP_ID", -1002359323024)
-    if not str(LOG_GROUP_ID).startswith("-100"):
-        raise ValueError("LOG_GROUP_ID must start with '-100'.")
-except ValueError as e:
-    raise SystemExit(f"[ERROR] - {e}")
-
-try:
-    LOGGER_ID = get_env_int("LOGGER_ID", -1002359323024)
-    if not str(LOGGER_ID).startswith("-100"):
-        raise ValueError("LOGGER_ID must start with '-100'.")
-except ValueError as e:
-    raise SystemExit(f"[ERROR] - {e}")
-
-try:
-    OWNER_ID = get_env_int("OWNER_ID", 7318101682)
+# Owner and logging
+# Chat id of a group for logging bot's activities
+LOGGER_ID = int(getenv("-1002359323024"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002359323024"))
+OWNER_ID = get_env_int("OWNER_ID", 7318101682)
 except ValueError:
     raise SystemExit("[ERROR] - OWNER_ID must be a valid integer.")
 
@@ -75,6 +66,13 @@ GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/Kayto_Official")
 SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/Anime_Chat_Group_Community")
 
+# Validate support URLs
+if SUPPORT_CHANNEL and not re.match(r"^https://", SUPPORT_CHANNEL):
+    raise SystemExit("[ERROR] - SUPPORT_CHANNEL URL must start with https://")
+
+if SUPPORT_CHAT and not re.match(r"^https://", SUPPORT_CHAT):
+    raise SystemExit("[ERROR] - SUPPORT_CHAT URL must start with https://")
+
 # Spotify credentials
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "Your_Default_Spotify_Client_ID")
 SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "Your_Default_Spotify_Client_Secret")
@@ -82,6 +80,13 @@ SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "Your_Default_Spotify
 # File size limits
 TG_AUDIO_FILESIZE_LIMIT = get_env_int("TG_AUDIO_FILESIZE_LIMIT", 5242880000)
 TG_VIDEO_FILESIZE_LIMIT = get_env_int("TG_VIDEO_FILESIZE_LIMIT", 5242880000)
+
+# Auto-assistant settings
+AUTO_LEAVING_ASSISTANT = os.getenv("AUTO_LEAVING_ASSISTANT", "True").lower() == "true"
+AUTO_LEAVE_ASSISTANT_TIME = get_env_int("ASSISTANT_LEAVE_TIME", 9000)
+
+# Playlist settings
+PLAYLIST_FETCH_LIMIT = get_env_int("PLAYLIST_FETCH_LIMIT", 25)
 
 # Image URLs
 START_IMG_URL = os.getenv(
@@ -91,7 +96,7 @@ PING_IMG_URL = os.getenv(
     "PING_IMG_URL", "https://graph.org/file/35ef624f376e22a0fa1d7-1ea63e464ea9f36fab.jpg"
 )
 
-# Helper functions
+# Validate URLs for images
 def validate_url(url, var_name):
     """Validates that a given URL starts with http or https."""
     if url and not re.match(r"^https?://", url):
@@ -100,17 +105,49 @@ def validate_url(url, var_name):
 validate_url(START_IMG_URL, "START_IMG_URL")
 validate_url(PING_IMG_URL, "PING_IMG_URL")
 
-def time_to_seconds(time_str: str) -> int:
+# Static image URLs
+STATIC_IMG_URLS = {
+    "PLAYLIST": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_AUDIO": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_VIDEO": "https://envs.sh/K-2.jpg",
+    "STREAM": "https://envs.sh/K-2.jpg",
+    "SOUNDCLOUD": "https://envs.sh/K-2.jpg",
+    "YOUTUBE": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ARTIST": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ALBUM": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_PLAYLIST": "https://envs.sh/K-2.jpg",
+}
+
+# YouTube thumbnail URL format
+YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
+
+# Session strings
+STRING1 = os.getenv("STRING_SESSION", None)
+STRING2 = os.getenv("STRING_SESSION2", None)
+STRING3 = os.getenv("STRING_SESSION3", None)
+STRING4 = os.getenv("STRING_SESSION4", None)
+STRING5 = os.getenv("STRING_SESSION5", None)
+
+# Helper functions
+def time_to_seconds(time: str) -> int:
     """Converts time in 'hh:mm:ss' format to seconds."""
     try:
-        return sum(int(x) * 60**i for i, x in enumerate(reversed(time_str.split(":"))))
+        return sum(int(x) * 60**i for i, x in enumerate(reversed(time.split(":"))))
     except ValueError:
         raise SystemExit("[ERROR] - Time format must be 'hh:mm:ss'.")
 
 # Derived configurations
 DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 
-# Pyrogram Client initialization
+# Filters and caches
+BANNED_USERS = filters.user()  # Ensure filters is properly imported
+adminlist = {}
+lyrical = {}
+votemode = {}
+autoclean = []
+confirmer = {}
+
+# Create a Pyrogram Client
 app = Client(
     "my_bot",
     api_id=API_ID,
@@ -118,38 +155,19 @@ app = Client(
     bot_token=BOT_TOKEN
 )
 
-# Test access to log groups
-def test_group_access(client, group_id, group_type):
-    """Test bot's access to the given group (LOG_GROUP_ID or LOGGER_ID)."""
-    try:
-        client.send_message(group_id, f"{group_type} access test successful!")
-        logger.info(f"{group_type} is accessible.")
-    except Exception as e:
-        logger.error(f"[ERROR] - Unable to access {group_type}: {e}")
-        raise SystemExit(f"[ERROR] - Check {group_type} or bot permissions.")
+@app.on_message(filters.command("start"))
+def start(client, message):
+    message.reply_text("Bot is now running!")
 
-# Retry logic for FloodWait
+# Retry logic for API rate limits (FloodWait)
 def send_message_with_retry(client, chat_id, text):
-    """Send a message with retry logic in case of FloodWait."""
     try:
         client.send_message(chat_id, text)
     except FloodWait as e:
         logger.warning(f"Flood wait encountered. Sleeping for {e.x} seconds.")
-        time.sleep(e.x)
-        send_message_with_retry(client, chat_id, text)
-
-# Bot commands
-@app.on_message(filters.command("start"))
-def start(client, message):
-    """Respond to the /start command."""
-    message.reply_text("Bot is now running!")
-    send_message_with_retry(client, LOG_GROUP_ID, "Bot started successfully!")
+        time.sleep(e.x)  # Wait for the specified duration
+        send_message_with_retry(client, chat_id, text)  # Retry after the wait
 
 # Run the bot
 if __name__ == "__main__":
-    with app:
-        # Test group access before starting
-        test_group_access(app, LOG_GROUP_ID, "LOG_GROUP_ID")
-        test_group_access(app, LOGGER_ID, "LOGGER_ID")
-        logger.info("Starting the bot...")
-        app.run()
+    app.run() - enhance it
