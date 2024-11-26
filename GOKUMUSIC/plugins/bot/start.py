@@ -6,6 +6,7 @@ from GOKUMUSIC import app
 from GOKUMUSIC.utils.database import add_served_user, is_on_off
 from GOKUMUSIC.utils.inline import start_panel
 from Strings import get_string
+from config import BANNED_USERS
 
 NEXI_VID = [
     "https://envs.sh/K-d.mp4"
