@@ -28,7 +28,7 @@ async def shell_cmd(cmd):
 
 
 class YouTubeAPI:
-    def __init__(self, browser="chrome"):
+    def __init__(self, browser="firefox"):
         self.base = "https://www.youtube.com/watch?v="
         self.regex = r"(?:youtube\.com|youtu\.be)"
         self.status = "https://www.youtube.com/oembed?url="
