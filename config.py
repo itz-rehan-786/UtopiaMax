@@ -46,15 +46,10 @@ SONG_DOWNLOAD_DURATION = get_env_int("SONG_DOWNLOAD_DURATION", 9999999)
 SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 9999999)
 
 # Owner and logging
-try:
-    LOGGER_ID = get_env_int("LOGGER_ID", -1002359323024)
-    if not str(LOGGER_ID).startswith("-100"):
-        raise ValueError("LOGGER_ID must start with '-100'.")
-except ValueError as e:
-    raise SystemExit(f"[ERROR] - {e}")
-
-try:
-    OWNER_ID = get_env_int("OWNER_ID", 7318101682)
+# Chat id of a group for logging bot's activities
+LOGGER_ID = int(getenv("-1002359323024"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002359323024"))
+OWNER_ID = get_env_int("OWNER_ID", 7318101682)
 except ValueError:
     raise SystemExit("[ERROR] - OWNER_ID must be a valid integer.")
 
