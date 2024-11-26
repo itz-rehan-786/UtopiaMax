@@ -1,31 +1,15 @@
 import asyncio
-import time
 import random
 from pyrogram import filters
-from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from youtubesearchpython.__future__ import VideosSearch
-
-from config import BANNED_USERS, SUPPORT_CHAT, LOGGER_ID
 from GOKUMUSIC import app
-from GOKUMUSIC.music import _boot_
-from GOKUMUSIC.utils.database import (
-    add_served_chat,
-    add_served_user,
-    blacklisted_chats,
-    get_lang,
-    is_banned_user,
-    is_on_off,
-)
-from GOKUMUSIC.utils.decorators.language import LanguageStart
-from GOKUMUSIC.utils.formatters import get_readable_time
-from GOKUMUSIC.utils.inline import help_pannel, private_panel, start_panel
+from GOKUMUSIC.utils.database import add_served_user, is_on_off
+from GOKUMUSIC.utils.inline import start_panel
 from Strings import get_string
 
 NEXI_VID = [
     "https://envs.sh/K-d.mp4"
 ]
-
 
 async def send_start_video(chat_id):
     """Send a random start video."""
@@ -37,9 +21,7 @@ async def send_start_video(chat_id):
         print(f"Error sending video: {e}")
         return None
 
-
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
-@LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     caption = _["start_2"].format(message.from_user.mention, app.mention)
@@ -48,17 +30,14 @@ async def start_pm(client, message: Message, _):
     video_message = await send_start_video(message.chat.id)
 
     if video_message:
-        await asyncio.sleep(1)  # Wait briefly before sending the next message
-
-    # Send the text and buttons in a separate message
-    try:
+        # Wait for the video to be sent before sending the next message
         await app.send_message(
             chat_id=message.chat.id,
             text=caption,
             reply_markup=InlineKeyboardMarkup(private_panel(_)),
         )
-    except Exception as e:
-        print(f"Error sending start message: {e}")
+    else:
+        print("Video not sent")
 
     # Log the start event
     if await is_on_off(2):
@@ -71,27 +50,20 @@ async def start_pm(client, message: Message, _):
 
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
-@LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
-    uptime = int(time.time() - _boot_)
-    caption = _["start_1"].format(app.mention, get_readable_time(uptime))
+    caption = _["start_1"].format(app.mention)
 
     # Send the start video first
     video_message = await send_start_video(message.chat.id)
 
     if video_message:
-        await asyncio.sleep(1)  # Wait briefly before sending the next message
-
-    # Send the text and buttons in a separate message
-    try:
+        # Wait briefly before sending the next message
         await app.send_message(
             chat_id=message.chat.id,
             text=caption,
             reply_markup=InlineKeyboardMarkup(out),
         )
-    except Exception as e:
-        print(f"Error sending start message in group: {e}")
 
     await add_served_chat(message.chat.id)
 
@@ -114,48 +86,27 @@ async def welcome(client, message: Message):
                     await message.reply_text(_["start_4"])
                     return await app.leave_chat(message.chat.id)
 
-                if message.chat.id in await blacklisted_chats():
-                    await message.reply_text(
-                        _["start_5"].format(
-                            app.mention,
-                            f"https://t.me/{app.username}?start=sudolist",
-                            SUPPORT_CHAT,
-                        ),
-                        disable_web_page_preview=True,
-                    )
-                    return await app.leave_chat(message.chat.id)
-
                 out = start_panel(_)
 
                 # Send the start video first
                 video_message = await send_start_video(message.chat.id)
 
                 if video_message:
-                    await asyncio.sleep(1)  # Wait briefly before sending the next message
-
-                # Send the text and buttons in a separate message
-                await app.send_message(
-                    chat_id=message.chat.id,
-                    text=_["start_3"].format(
-                        message.from_user.mention,
-                        app.mention,
-                        message.chat.title,
-                        app.mention,
-                    ),
-                    reply_markup=InlineKeyboardMarkup(out),
-                )
+                    await app.send_message(
+                        chat_id=message.chat.id,
+                        text=_["start_3"].format(
+                            message.from_user.mention,
+                            app.mention,
+                            message.chat.title,
+                            app.mention,
+                        ),
+                        reply_markup=InlineKeyboardMarkup(out),
+                    )
 
                 await add_served_chat(message.chat.id)
 
         except Exception as ex:
             print(f"Error welcoming new members: {ex}")
-
-
-@app.on_message(filters.text)
-async def edited_message_handler(client, message: Message):
-    if message.edit_date:
-        # Example logic for handling edited messages
-        await message.reply_text(f"Edited message detected: {message.text}")
 
 
 if __name__ == "__main__":
