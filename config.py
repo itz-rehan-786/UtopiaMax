@@ -103,16 +103,16 @@ validate_url(START_IMG_URL, "START_IMG_URL")
 validate_url(PING_IMG_URL, "PING_IMG_URL")
 
 # Static image URLs
-STATIC_IMG_URLS = {
-    "PLAYLIST": "https://envs.sh/K-2.jpg",
-    "TELEGRAM_AUDIO": "https://envs.sh/K-2.jpg",
-    "TELEGRAM_VIDEO": "https://envs.sh/K-2.jpg",
-    "STREAM": "https://envs.sh/K-2.jpg",
-    "SOUNDCLOUD": "https://envs.sh/K-2.jpg",
-    "YOUTUBE": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_ARTIST": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_ALBUM": "https://envs.sh/K-2.jpg",
-    "SPOTIFY_PLAYLIST": "https://envs.sh/K-2.jpg",
+STATIC_IMG_URL = {
+    "PLAYLIST_IMG_URL": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_AUDIO_URL": "https://envs.sh/K-2.jpg",
+    "TELEGRAM_VIDEO_URL": "https://envs.sh/K-2.jpg",
+    "STREAM_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SOUNDCLOUD_IMG_URL": "https://envs.sh/K-2.jpg",
+    "YOUTUBE_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ARTIST_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_ALBUM_IMG_URL": "https://envs.sh/K-2.jpg",
+    "SPOTIFY_PLAYLIST_IMG_URL": "https://envs.sh/K-2.jpg",
 }
 
 # YouTube thumbnail URL format
