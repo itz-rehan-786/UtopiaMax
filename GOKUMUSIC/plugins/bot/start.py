@@ -3,10 +3,10 @@ import random
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from GOKUMUSIC import app
-from GOKUMUSIC.utils.database import add_served_user, is_on_off
-from GOKUMUSIC.utils.inline import start_panel
+from GOKUMUSIC.utils.database import add_served_user, is_on_off, add_served_chat
+from GOKUMUSIC.utils.inline import start_panel, private_panel
 from Strings import get_string
-from config import BANNED_USERS
+from config import BANNED_USERS, LOGGER_ID
 
 NEXI_VID = [
     "https://envs.sh/K-d.mp4"
@@ -31,7 +31,10 @@ async def start_pm(client, message: Message, _):
     video_message = await send_start_video(message.chat.id)
 
     if video_message:
-        # Wait for the video to be sent before sending the next message
+        # Wait briefly to ensure the video is sent
+        await asyncio.sleep(1)
+
+        # Send the caption and buttons
         await app.send_message(
             chat_id=message.chat.id,
             text=caption,
@@ -60,6 +63,7 @@ async def start_gp(client, message: Message, _):
 
     if video_message:
         # Wait briefly before sending the next message
+        await asyncio.sleep(1)
         await app.send_message(
             chat_id=message.chat.id,
             text=caption,
