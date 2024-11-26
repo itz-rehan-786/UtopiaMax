@@ -92,18 +92,6 @@ START_IMG_URL = os.getenv(
 PING_IMG_URL = os.getenv(
     "PING_IMG_URL", "https://graph.org/file/35ef624f376e22a0fa1d7-1ea63e464ea9f36fab.jpg"
 )
-
-# Validate URLs for images
-def validate_url(url, var_name):
-    """Validates that a given URL starts with http or https."""
-    if url and not re.match(r"^https?://", url):
-        raise SystemExit(f"[ERROR] - {var_name} must be a valid URL starting with http or https.")
-
-validate_url(START_IMG_URL, "START_IMG_URL")
-validate_url(PING_IMG_URL, "PING_IMG_URL")
-
-# Static image URLs
-
 PLAYLIST_IMG_URL = "https://envs.sh/K-2.jpg",
 TELEGRAM_AUDIO_URL = "https://envs.sh/K-2.jpg",
 TELEGRAM_VIDEO_URL = "https://envs.sh/K-2.jpg",
