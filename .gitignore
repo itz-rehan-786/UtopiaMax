@@ -3,6 +3,7 @@
 log.txt
 .DS_Store
 *.session
+cookies.txt
 raw_files/
 cache/
 downloads/
