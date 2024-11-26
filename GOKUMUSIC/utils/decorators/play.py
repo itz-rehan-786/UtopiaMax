@@ -1,4 +1,5 @@
 import asyncio
+from config import START_IMG_URL
 
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import (
@@ -73,7 +74,7 @@ def PlayWrapper(command):
                     return await message.reply_text(_["str_1"])
                 buttons = botplaylist_markup(_)
                 return await message.reply_photo(
-                    photo=PLAYLIST_IMG_URL,
+                    photo=START_IMG_URL,
                     caption=_["play_18"],
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
