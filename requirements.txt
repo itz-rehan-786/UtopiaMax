@@ -58,3 +58,4 @@ cloudscraper
 pycryptodome
 opencv-python
 yt-dlp
+browser-cookie3
