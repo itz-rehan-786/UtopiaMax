@@ -2,6 +2,7 @@ import asyncio
 import random
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.enums import ChatType
 from GOKUMUSIC import app
 from GOKUMUSIC.utils.database import add_served_user, is_on_off, add_served_chat
 from GOKUMUSIC.utils.inline import start_panel, private_panel
@@ -23,7 +24,11 @@ async def send_start_video(chat_id):
         return None
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
-async def start_pm(client, message: Message, _):
+async def start_pm(client, message: Message):
+    # Fetch the language and localization strings
+    language = await get_lang(message.from_user.id)  # Assuming `get_lang()` returns the language code
+    _ = get_string(language)  # Load the appropriate localization strings
+
     await add_served_user(message.from_user.id)
     caption = _["start_2"].format(message.from_user.mention, app.mention)
 
@@ -54,7 +59,11 @@ async def start_pm(client, message: Message, _):
 
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
-async def start_gp(client, message: Message, _):
+async def start_gp(client, message: Message):
+    # Fetch the language and localization strings
+    language = await get_lang(message.chat.id)  # Assuming `get_lang()` returns the language code
+    _ = get_string(language)  # Load the appropriate localization strings
+
     out = start_panel(_)
     caption = _["start_1"].format(app.mention)
 
@@ -77,8 +86,8 @@ async def start_gp(client, message: Message, _):
 async def welcome(client, message: Message):
     for member in message.new_chat_members:
         try:
-            language = await get_lang(message.chat.id)
-            _ = get_string(language)
+            language = await get_lang(message.chat.id)  # Get chat language
+            _ = get_string(language)  # Get appropriate localization strings
 
             if await is_banned_user(member.id):
                 try:
