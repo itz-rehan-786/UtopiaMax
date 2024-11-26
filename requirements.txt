@@ -57,5 +57,5 @@ img2pdf
 cloudscraper
 pycryptodome
 opencv-python
-yt-dlp
-browser-cookie3
+yt-dlp==2024.x.x
+python-telegram-bot==xx.x.x
