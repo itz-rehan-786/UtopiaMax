@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pyrogram.enums import ChatType
 from GOKUMUSIC import app
-from GOKUMUSIC.utils.database import add_served_user, is_on_off, add_served_chat
+from GOKUMUSIC.utils.database import add_served_user, is_on_off, add_served_chat, get_lang
 from GOKUMUSIC.utils.inline import start_panel, private_panel
 from Strings import get_string
 from config import BANNED_USERS, LOGGER_ID
