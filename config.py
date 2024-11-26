@@ -38,7 +38,7 @@ BOT_NAME = os.getenv("BOT_NAME", "Utopia")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
 
 # Database configurations
-MONGO_DB_URI = os.getenv("MONGO_DB_URI", "Your_Default_MongoDB_URI")
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "")
 
 # Limits and durations
 DURATION_LIMIT_MIN = get_env_int("DURATION_LIMIT", 17000)
@@ -47,8 +47,7 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 
 # Owner and logging
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(os.getenv("LOGGER_ID", "-1002264181784"))
-LOG_GROUP_ID = int(os.getenv("LOG_GROUP_ID", "-1002264181784"))
+LOGGER_ID = os.getenv("LOGGER_ID", "-1002264181784")
 OWNER_ID = get_env_int("OWNER_ID", 7678359785)
 
 # Heroku configurations
