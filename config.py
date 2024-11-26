@@ -47,11 +47,9 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 
 # Owner and logging
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("-1002359323024"))
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002359323024"))
+LOGGER_ID = int(getenv("-1002271163781"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002271163781"))
 OWNER_ID = get_env_int("OWNER_ID", 7318101682)
-except ValueError:
-    raise SystemExit("[ERROR] - OWNER_ID must be a valid integer.")
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
