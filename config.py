@@ -29,16 +29,16 @@ def get_env_int(var_name, default_value):
 
 
 # Basic configurations
-API_ID = os.getenv("API_ID", "")
-API_HASH = os.getenv("API_HASH", "")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+API_ID = os.getenv("API_ID", "23568641")
+API_HASH = os.getenv("API_HASH", "a39098e8752a45c2d6d1889941547bbc")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7339158179:AAGPPL7MP0JRB44Mici2ny2Dg37i_WYAhes")
 OWNER_USERNAME = os.getenv("OWNER_USERNAME", "X_STARBOY_KT")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
 BOT_NAME = os.getenv("BOT_NAME", "Utopia")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
 
 # Database configurations
-MONGO_DB_URI = os.getenv("MONGO_DB_URI", "")
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "mongodb+srv://GOKU:MISSBHOPALI@goku.pzzsl8d.mongodb.net/?retryWrites=true&w=majority")
 
 # Limits and durations
 DURATION_LIMIT_MIN = get_env_int("DURATION_LIMIT", 17000)
@@ -106,11 +106,11 @@ SPOTIFY_PLAYLIST_IMG_URL = "https://envs.sh/K-2.jpg",
 YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
 
 # Session strings
-STRING1 = os.getenv("STRING_SESSION", None)
-STRING2 = os.getenv("STRING_SESSION2", None)
-STRING3 = os.getenv("STRING_SESSION3", None)
-STRING4 = os.getenv("STRING_SESSION4", None)
-STRING5 = os.getenv("STRING_SESSION5", None)
+STRING1 = os.getenv("STRING_SESSION", BQGWS8YABb7gKSha9wZ3qHz4N479f-0TDZ9EfejtAxTq0WgQvhsJOVRiS4igIRibjsUBZZGTZlMJ1y_UkfQrMaWxymfRZ3Xjqw5R6sSszQdHZb3pahkXlgUssSzZkQPSsaAW4X5I7VtoB9QCND-l_A3Bm0mzfNpupNaSOsNvRusjJVz51U9JbOAjIy7cErJg0I7Bqke58fZIWMrprWTR97SjcADhEZ0zHPzUgFFrjwxMK7CuNPwMYkoTu6YsrVOnhAiTDnvxYw1qKYrc9Tc6X1hRWKQfeRpPxE5jPMy2sCJCDPbyC5cvwx7mn60zu93D0Fp2eyobSES9G56YvfOh0hOQcyLb7QAAAAG-IuuuAA)
+STRING2 = os.getenv("STRING_SESSION2", BQGWS8YABb7gKSha9wZ3qHz4N479f-0TDZ9EfejtAxTq0WgQvhsJOVRiS4igIRibjsUBZZGTZlMJ1y_UkfQrMaWxymfRZ3Xjqw5R6sSszQdHZb3pahkXlgUssSzZkQPSsaAW4X5I7VtoB9QCND-l_A3Bm0mzfNpupNaSOsNvRusjJVz51U9JbOAjIy7cErJg0I7Bqke58fZIWMrprWTR97SjcADhEZ0zHPzUgFFrjwxMK7CuNPwMYkoTu6YsrVOnhAiTDnvxYw1qKYrc9Tc6X1hRWKQfeRpPxE5jPMy2sCJCDPbyC5cvwx7mn60zu93D0Fp2eyobSES9G56YvfOh0hOQcyLb7QAAAAG-IuuuAA)
+STRING3 = os.getenv("STRING_SESSION3", BQGWS8YABb7gKSha9wZ3qHz4N479f-0TDZ9EfejtAxTq0WgQvhsJOVRiS4igIRibjsUBZZGTZlMJ1y_UkfQrMaWxymfRZ3Xjqw5R6sSszQdHZb3pahkXlgUssSzZkQPSsaAW4X5I7VtoB9QCND-l_A3Bm0mzfNpupNaSOsNvRusjJVz51U9JbOAjIy7cErJg0I7Bqke58fZIWMrprWTR97SjcADhEZ0zHPzUgFFrjwxMK7CuNPwMYkoTu6YsrVOnhAiTDnvxYw1qKYrc9Tc6X1hRWKQfeRpPxE5jPMy2sCJCDPbyC5cvwx7mn60zu93D0Fp2eyobSES9G56YvfOh0hOQcyLb7QAAAAG-IuuuAA)
+STRING4 = os.getenv("STRING_SESSION4", BQGWS8YABb7gKSha9wZ3qHz4N479f-0TDZ9EfejtAxTq0WgQvhsJOVRiS4igIRibjsUBZZGTZlMJ1y_UkfQrMaWxymfRZ3Xjqw5R6sSszQdHZb3pahkXlgUssSzZkQPSsaAW4X5I7VtoB9QCND-l_A3Bm0mzfNpupNaSOsNvRusjJVz51U9JbOAjIy7cErJg0I7Bqke58fZIWMrprWTR97SjcADhEZ0zHPzUgFFrjwxMK7CuNPwMYkoTu6YsrVOnhAiTDnvxYw1qKYrc9Tc6X1hRWKQfeRpPxE5jPMy2sCJCDPbyC5cvwx7mn60zu93D0Fp2eyobSES9G56YvfOh0hOQcyLb7QAAAAG-IuuuAA)
+STRING5 = os.getenv("STRING_SESSION5", BQGWS8YABb7gKSha9wZ3qHz4N479f-0TDZ9EfejtAxTq0WgQvhsJOVRiS4igIRibjsUBZZGTZlMJ1y_UkfQrMaWxymfRZ3Xjqw5R6sSszQdHZb3pahkXlgUssSzZkQPSsaAW4X5I7VtoB9QCND-l_A3Bm0mzfNpupNaSOsNvRusjJVz51U9JbOAjIy7cErJg0I7Bqke58fZIWMrprWTR97SjcADhEZ0zHPzUgFFrjwxMK7CuNPwMYkoTu6YsrVOnhAiTDnvxYw1qKYrc9Tc6X1hRWKQfeRpPxE5jPMy2sCJCDPbyC5cvwx7mn60zu93D0Fp2eyobSES9G56YvfOh0hOQcyLb7QAAAAG-IuuuAA)
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
