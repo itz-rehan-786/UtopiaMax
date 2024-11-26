@@ -50,7 +50,7 @@ async def init():
         pass
     await GOKU.decorators()
     LOGGER("GOKUMUSIC").info(
-        "╔═════ஜ۩۞۩ஜ════╗\n𝗠𝗔𝗗𝗘 𝗕𝗬 𝗧𝗨𝗛𝗜𝗡\n╚═════ஜ۩۞۩ஜ════╝"
+        "╔═════ஜ۩۞۩ஜ════╗\n𝗠𝗔𝗗𝗘 𝗕𝗬 𝗦𝗧𝗔𝗥𝗕𝗢𝗬\n╚═════ஜ۩۞۩ஜ════╝"
     )
     await idle()
     await app.stop()
