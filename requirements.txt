@@ -57,3 +57,4 @@ img2pdf
 cloudscraper
 pycryptodome
 opencv-python
+yt-dlp
