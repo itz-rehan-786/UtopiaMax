@@ -1,10 +1,9 @@
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
-
 import config
-
 from ..logging import LOGGER
-
+import yt_dlp  # Import yt-dlp to handle YouTube downloads
+import os
 
 class GOKU(Client):
     def __init__(self):
@@ -49,5 +48,28 @@ class GOKU(Client):
             exit()
         LOGGER(__name__).info(f"Music Bot Started as {self.name}")
 
+        # Initialize yt-dlp with cookies.txt
+        self.yt_dlp_opts = {
+            'format': 'bestaudio/best',   # Default to the best audio format
+            'noplaylist': True,           # Don't download playlists
+            'cookiefile': 'cookies.txt',  # Path to your cookies.txt file
+        }
+
     async def stop(self):
         await super().stop()
+
+    # New method to handle YouTube download requests
+    async def download_youtube_video(self, url: str):
+        try:
+            with yt_dlp.YoutubeDL(self.yt_dlp_opts) as ydl:
+                info = ydl.extract_info(url, download=False)
+                video_title = info.get('title', 'Unknown')
+                video_url = info.get('url', None)
+                
+                if video_url:
+                    return f"Successfully fetched: {video_title}\nURL: {video_url}"
+                else:
+                    return "Failed to fetch video URL."
+        except Exception as e:
+            LOGGER(__name__).error(f"Error downloading YouTube video: {str(e)}")
+            return f"An error occurred: {str(e)}"
