@@ -32,7 +32,7 @@ def get_env_int(var_name, default_value):
 API_ID = os.getenv("API_ID", "")
 API_HASH = os.getenv("API_HASH", "")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-OWNER_USERNAME = os.getenv("OWNER_USERNAME", "Username_Of_Tuhin")
+OWNER_USERNAME = os.getenv("OWNER_USERNAME", "X_STARBOY_KT")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
 BOT_NAME = os.getenv("BOT_NAME", "Utopia")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
@@ -54,7 +54,7 @@ except ValueError as e:
     raise SystemExit(f"[ERROR] - {e}")
 
 try:
-    OWNER_ID = get_env_int("OWNER_ID", 7038202445)
+    OWNER_ID = get_env_int("OWNER_ID", 7318101682)
 except ValueError:
     raise SystemExit("[ERROR] - OWNER_ID must be a valid integer.")
 
