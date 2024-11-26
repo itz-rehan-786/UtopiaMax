@@ -14,7 +14,7 @@ from GOKUMUSIC.mongo.couples_db import _get_image, get_couple
 POLICE = [
     [
         InlineKeyboardButton(
-            text="𓊈𝗙𝗜𝗡𝗗 𝗔𝗠𝗢𝗡𝗚 𝗦𝗧𝗥𝗔𝗡𝗚𝗘𝗥𝗦𓊉",
+            text="🍭 ᴄʜᴀᴛ ᴄᴏᴍᴍᴜɴɪᴛʏ",
             url=f"https://t.me/Anime_Chat_Group_Community",
         ),
     ],
