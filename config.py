@@ -168,4 +168,4 @@ def send_message_with_retry(client, chat_id, text):
 
 # Run the bot
 if __name__ == "__main__":
-    app.run() - enhance it
+    app.run() # enhance it
