@@ -10,7 +10,7 @@ from Strings import get_string
 from config import BANNED_USERS, LOGGER_ID
 
 NEXI_VID = [
-    "https://envs.sh/z7i.mp4"
+    "https://envs.sh/z7S.mp4"
 ]
 
 async def send_start_video(chat_id):
