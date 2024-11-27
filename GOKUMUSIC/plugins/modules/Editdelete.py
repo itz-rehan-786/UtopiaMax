@@ -1,4 +1,4 @@
-from telegram import Update, Bot, InlineKeyboardMarkup, InlineKeyboardButton, ChatMember, Filters
+from telegram import Update, Bot, InlineKeyboardMarkup, InlineKeyboardButton, ChatMember, filters
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext
 from config import BOT_TOKEN, OWNER_ID
 
@@ -34,7 +34,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
 
     # Message edit handler
-    dp.add_handler(MessageHandler(Filters.update.edited_message, check_edit))
+    dp.add_handler(MessageHandler(filters.update.edited_message, check_edit))
 
     updater.start_polling()
     updater.idle()
