@@ -1,40 +1,58 @@
-import random
 import time
 import requests
-from GOKUMUSIC import app
-from config import BOT_USERNAME
-
-from pyrogram.enums import ChatAction, ParseMode
 from pyrogram import filters
+from pyrogram.enums import ChatAction, ParseMode
+from GOKUMUSIC import app
 
-@app.on_message(filters.command(["chatgpt","ai","ask","gpt","solve"],  prefixes=["+", ".", "/", "-", "", "$","#","&"]))
+@app.on_message(filters.command(["chatgpt", "ai", "ask", "gpt", "solve"], prefixes=["+", ".", "/", "-", "", "$", "#", "&"]))
 async def chat_gpt(bot, message):
+    """Fetch a response from ChatGPT-like API and reply to the user."""
     try:
         start_time = time.time()
         await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
 
+        # Check if the command has a query
         if len(message.command) < 2:
-            await message.reply_text(
-                "Example:\n\n/chatgpt 𝗪𝗵𝗲𝗿𝗲 𝗶𝘀 𝗵𝗮𝘀𝘁𝗶𝗻𝗮𝗽𝘂𝗿?"
+            return await message.reply_text(
+                "Please provide a question.\n\nExample:\n`/chatgpt Where is Hastinapur?`",
+                parse_mode=ParseMode.MARKDOWN
             )
-        else:
-            a = message.text.split(' ', 1)[1]
-            response = requests.get(f'https://chatgpt.apinepdev.workers.dev/?question={a}')
 
-            try:
-                # Check if "results" key is present in the JSON response
-                if "answer" in response.json():
-                    x = response.json()["answer"]
-                    end_time = time.time()
-                    telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
-                    await message.reply_text(
-                        f" {x}      ᴀɴsᴡᴇʀɪɴɢ ʙʏ ➛  @Kiyansh3_bot",
-                        parse_mode=ParseMode.MARKDOWN
-                    )
-                else:
-                    await message.reply_text("No 'results' key found in the response.")
-            except KeyError:
-                # Handle any other KeyError that might occur
-                await message.reply_text("Error accessing the response.")
+        # Extract the query
+        query = message.text.split(' ', 1)[1]
+
+        # Call the API
+        api_url = f"https://chatgpt.apinepdev.workers.dev/?question={query}"
+        response = requests.get(api_url, timeout=10)
+
+        # Check for a successful HTTP response
+        if response.status_code != 200:
+            return await message.reply_text(
+                f"Error: Unable to fetch a response. API returned status code {response.status_code}."
+            )
+
+        # Parse the JSON response
+        data = response.json()
+        answer = data.get("answer")
+
+        if not answer:
+            return await message.reply_text(
+                "The API did not return an answer. Please try again later."
+            )
+
+        # Measure the response time
+        end_time = time.time()
+        response_time = round((end_time - start_time) * 1000, 2)
+
+        # Reply with the answer
+        await message.reply_text(
+            f"**Question:** `{query}`\n\n**Answer:** {answer}\n\nResponse time: `{response_time} ms`\n\nAnswered by: [@{BOT_USERNAME}](https://t.me/{BOT_USERNAME})",
+            parse_mode=ParseMode.MARKDOWN
+        )
+
+    except requests.exceptions.Timeout:
+        await message.reply_text("Error: The request timed out. Please try again later.")
+    except requests.exceptions.RequestException as e:
+        await message.reply_text(f"Error: An error occurred while making the request.\n\nDetails: {e}")
     except Exception as e:
-        await message.reply_text(f"**á´‡Ê€Ê€á´Ê€: {e} ")
+        await message.reply_text(f"Unexpected Error: {e}")
