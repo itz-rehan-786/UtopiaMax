@@ -112,6 +112,7 @@ YOUTUBE_IMG_URL = os.getenv(
 ) 
 SPOTIFY_ARTIST_IMG_URL = os.getenv(
     "SPOTIFY_ARTIST_IMG_URL", "https://envs.sh/K-2.jpg",
+) 
 SPOTIFY_ALBUM_IMG_URL = os.getenv(
     "SPOTIFY_ALBUM_IMG_URL", "https://envs.sh/K-2.jpg"
 ) 
