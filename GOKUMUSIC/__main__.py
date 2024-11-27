@@ -6,7 +6,8 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 from GOKUMUSIC.logging import LOGGER
-from GOKUMUSIC import app, userbot
+from GOKUMUSIC.music.py import app
+from GOKUMUSIC.userbot.py import userbot
 from GOKUMUSIC.core.call import GOKU
 from GOKUMUSIC.music import sudo
 from GOKUMUSIC.plugins import ALL_MODULES
