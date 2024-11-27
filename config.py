@@ -48,7 +48,7 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 # Owner and logging
 # Chat id of a group for logging bot's activities
 LOGGER_ID = os.getenv("LOGGER_ID", -1002178188404)
-OWNER_ID = get_env_int("OWNER_ID", 7678359785)
+OWNER_ID = get_env_int("OWNER_ID", 7318101682)
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
