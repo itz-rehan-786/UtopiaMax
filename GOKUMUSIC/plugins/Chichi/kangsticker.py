@@ -1,158 +1,82 @@
-import imghdr
-import os
-from asyncio import gather
-from traceback import format_exc
-
+from uuid import uuid4
+import pyrogram
 from pyrogram import filters
-from pyrogram.errors import (
-    PeerIdInvalid,
-    ShortnameOccupyFailed,
-    StickerEmojiInvalid,
-    StickerPngDimensions,
-    StickerPngNopng,
-    UserIsBlocked,
-)
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from GOKUMUSIC import app
-from config import BOT_USERNAME
-from GOKUMUSIC.utils.errors import capture_err
-
-from GOKUMUSIC.utils.files import (
-    get_document_from_file_id,
-    resize_file_to_sticker_size,
-    upload_document,
-)
-
-from GOKUMUSIC.utils.stickerset import (
-    add_sticker_to_set,
-    create_sticker,
-    create_sticker_set,
-    get_sticker_set_by_name,
-)
-
-# Constants
-MAX_STICKERS = 120  # Maximum stickers per pack
-SUPPORTED_TYPES = ["jpeg", "png", "webp"]  # Supported sticker formats
-
-
-@app.on_message(filters.command("get_sticker"))
-@capture_err
-async def sticker_image(_, message: Message):
-    """Reply to a sticker to send it back as both photo and document."""
-    r = message.reply_to_message
-    if not r or not r.sticker:
-        return await message.reply("Reply to a sticker.")
-
-    m = await message.reply("Sending...")
-    file_path = await r.download(f"{r.sticker.file_unique_id}.png")
-
-    try:
-        await gather(
-            message.reply_photo(file_path),
-            message.reply_document(file_path),
-        )
-    finally:
-        await m.delete()
-        if os.path.isfile(file_path):
-            os.remove(file_path)
-
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from Mikobot import app
 
 @app.on_message(filters.command("kang"))
-@capture_err
-async def kang(client, message: Message):
-    """Kang a sticker and create a sticker pack."""
+async def _packkang(app, message):
+    """
+    @MaybeSuraj on telegram. who helped me in making this module.
+    """
+    txt = await message.reply_text("Processing....")
     if not message.reply_to_message:
-        return await message.reply_text("Reply to a sticker/image to kang it.")
-    if not message.from_user:
-        return await message.reply_text("You are anon admin, kang stickers in my PM.")
+        await txt.edit("Reply to a message containing a sticker.")
+        return
+    if not message.reply_to_message.sticker:
+        await txt.edit("Reply to a sticker.")
+        return
+    if (
+        message.reply_to_message.sticker.is_animated
+        or message.reply_to_message.sticker.is_video
+    ):
+        return await txt.edit("Reply to a non-animated sticker.")
+    if len(message.command) < 2:
+        pack_name = f"{message.from_user.first_name}_sticker_pack_by_@app_Robot"
+    else:
+        pack_name = message.text.split(maxsplit=1)[1]
 
-    msg = await message.reply_text("Kanging Sticker...")
-    sticker_emoji = "🤔"
-    args = message.text.split()
+    short_name = message.reply_to_message.sticker.set_name
+    stickers = await app.invoke(
+        pyrogram.raw.functions.messages.GetStickerSet(
+            stickerset=pyrogram.raw.types.InputStickerSetShortName(
+                short_name=short_name
+            ),
+            hash=0,
+        )
+    )
     
-    # Determine sticker emoji
-    if len(args) > 1:
-        sticker_emoji = args[1]
-    elif message.reply_to_message.sticker and message.reply_to_message.sticker.emoji:
-        sticker_emoji = message.reply_to_message.sticker.emoji
+    # Collect stickers from the set
+    shits = stickers.documents
+    sticks = []
 
-    # Handle sticker/image kanging
-    try:
-        doc = message.reply_to_message.photo or message.reply_to_message.document
+    for i in shits:
+        sex = pyrogram.raw.types.InputDocument(
+            id=i.id, access_hash=i.access_hash, file_reference=i.thumbs[0].bytes
+        )
 
-        if message.reply_to_message.sticker:
-            sticker = await create_sticker(
-                await get_document_from_file_id(message.reply_to_message.sticker.file_id),
-                sticker_emoji,
+        sticks.append(
+            pyrogram.raw.types.InputStickerSetItem(
+                document=sex, emoji=i.attributes[1].alt
             )
-        elif doc:
-            if doc.file_size > 10_000_000:  # Max file size of 10MB
-                return await msg.edit("File size too large.")
-
-            temp_file_path = await app.download_media(doc)
-            image_type = imghdr.what(temp_file_path)
-            
-            if image_type not in SUPPORTED_TYPES:
-                return await msg.edit(f"Format not supported! ({image_type})")
-
-            try:
-                temp_file_path = await resize_file_to_sticker_size(temp_file_path)
-                sticker = await create_sticker(
-                    await upload_document(client, temp_file_path, message.chat.id),
-                    sticker_emoji,
-                )
-            finally:
-                if os.path.isfile(temp_file_path):
-                    os.remove(temp_file_path)
-        else:
-            return await msg.edit("Nope, can't kang that.")
-
-        # Create or get sticker pack
-        packnum = 0
-        limit = 0
-        packname = f"f{message.from_user.id}_by_{BOT_USERNAME}"
-
-        while limit < 50:
-            stickerset = await get_sticker_set_by_name(client, packname)
-
-            if not stickerset:
-                # Create a new sticker set if one does not exist
-                stickerset = await create_sticker_set(
-                    client,
-                    message.from_user.id,
-                    f"{message.from_user.first_name[:32]}'s kang pack",
-                    packname,
-                    [sticker],
-                )
-            elif stickerset.set.count >= MAX_STICKERS:
-                # If the pack is full, create a new pack
-                packnum += 1
-                packname = f"f{packnum}_{message.from_user.id}_by_{BOT_USERNAME}"
-                limit += 1
-                continue
-            else:
-                await add_sticker_to_set(client, stickerset, sticker)
-            break
-
-        await msg.edit(
-            f"Sticker Kanged To [Pack](t.me/addstickers/{packname})\nEmoji: {sticker_emoji}"
         )
-    except (PeerIdInvalid, UserIsBlocked):
-        keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Start", url=f"t.me/{BOT_USERNAME}")]]
+
+    try:
+        # Generate a new sticker pack name using UUID
+        new_short_name = f'stikcer_pack_{str(uuid4()).replace("-","")}_by_{app.me.username}'
+        user_id = await app.resolve_peer(message.from_user.id)
+        
+        # Create the new sticker set
+        await app.invoke(
+            pyrogram.raw.functions.stickers.CreateStickerSet(
+                user_id=user_id,
+                title=pack_name,
+                short_name=new_short_name,
+                stickers=sticks,
+            )
         )
-        await msg.edit(
-            "You Need To Start A Private Chat With Me.",
-            reply_markup=keyboard,
+        
+        await txt.edit(
+            f"Your sticker has been added! For fast updates, remove your pack & add again.\n🎖 𝗧𝗢𝗧𝗔𝗟 𝗦𝗧𝗜𝗖𝗞𝗘𝗥: {len(sticks)}",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "PACK", url=f"http://t.me/addstickers/{new_short_name}"
+                        )
+                    ]
+                ]
+            ),
         )
-    except StickerPngNopng:
-        await message.reply_text("The provided image is not a valid PNG.")
-    except StickerPngDimensions:
-        await message.reply_text("The sticker PNG dimensions are invalid.")
-    except StickerEmojiInvalid:
-        await message.reply_text("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
-    except ShortnameOccupyFailed:
-        await message.reply_text("Change your name or username.")
     except Exception as e:
-        await message.reply_text(f"An error occurred: {str(e)}")
-        print(format_exc())
+        await message.reply(str(e))
