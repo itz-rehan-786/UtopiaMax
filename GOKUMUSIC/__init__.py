@@ -17,7 +17,7 @@ api = SafoneAPI()
 userbot = Userbot()
 
 
-from .platforms import *
+from UTOPIA.platforms import *
 
 Apple = AppleAPI()
 Carbon = CarbonAPI()
