@@ -1,5 +1,5 @@
-from telegram import Update, Bot, InlineKeyboardMarkup, InlineKeyboardButton, ChatMember
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram import Update, Bot, InlineKeyboardMarkup, InlineKeyboardButton, ChatMember, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext
 from config import BOT_TOKEN, OWNER_ID
 
 def check_edit(update: Update, context: CallbackContext):
