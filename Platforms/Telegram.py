@@ -14,9 +14,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Voice
 
 import config
 
-from AviaxMusic import app
+from GOKUMUSIC import app
 
-from AviaxMusic.utils.formatters import (
+from GOKUMUSIC.utils.formatters import (
 
     check_duration,
 
