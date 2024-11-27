@@ -4,7 +4,7 @@ from .Carbon import CarbonAPI
 
 from .Resso import RessoAPI
 
-from .Soundcloud import SoundAPI
+from .SoundCloud import SoundAPI
 
 from .Spotify import SpotifyAPI
 
