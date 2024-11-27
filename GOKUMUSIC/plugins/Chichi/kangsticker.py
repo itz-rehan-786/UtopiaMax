@@ -2,7 +2,7 @@ from uuid import uuid4
 import pyrogram
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Mikobot import app
+from GOKUMUSIC import app
 
 @app.on_message(filters.command("kang"))
 async def _packkang(app, message):
