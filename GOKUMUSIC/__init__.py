@@ -15,7 +15,7 @@ app = GOKU()
 userbot = Userbot()
 
 
-from .platforms import *
+from Platforms import *
 
 Apple = AppleAPI()
 Carbon = CarbonAPI()
