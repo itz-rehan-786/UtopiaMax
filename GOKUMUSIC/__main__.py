@@ -5,7 +5,7 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from GOKUMUSIC import LOGGER, app, userbot
+from GOKUMUSIC.logging import LOGGER, app, userbot
 from GOKUMUSIC.core.call import GOKU
 from GOKUMUSIC.music import sudo
 from GOKUMUSIC.plugins import ALL_MODULES
