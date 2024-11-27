@@ -6,7 +6,7 @@ from yt_dlp import YoutubeDL
 
 
 
-from AviaxMusic.utils.formatters import seconds_to_min
+from GOKUMUSIC.utils.formatters import seconds_to_min
 
 
 
