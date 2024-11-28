@@ -120,5 +120,4 @@ urllib3
 
 openai
 
-libgl1-mesa-glx
-ffmpeg
+
