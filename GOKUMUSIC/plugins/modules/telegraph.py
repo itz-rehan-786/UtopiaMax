@@ -1,36 +1,30 @@
-p
 # <======================================= IMPORTS ==================================================>
 from telegraph import upload_file
 from pyrogram import filters
 from GOKUMUSIC import app
-from pyrogram.types import InputMediaPhoto
+from pyrogram.types import Message
 
-# <======================================= telegra.ph ===============================================>
-@app.on_message(filters.command(["tele" , "telegraph"]))
-def ul(_, message):
+# <======================================= Helper Function ==========================================>
+def upload_to_platform(message: Message, base_url: str):
     reply = message.reply_to_message
-    if reply.media:
-        i = message.reply("𝐌𝙰𝙺𝙴 𝐀 𝐋𝙸𝙽𝙺...")
+    if not reply or not reply.media:
+        return message.reply("⚠️ Please reply to a media file (photo/video/document).")
+    
+    status = message.reply("🔄 Uploading your file...")
+    try:
         path = reply.download()
-        fk = upload_file(path)
-        for x in fk:
-            url = "https://telegra.ph" + x
+        file_link = upload_file(path)
+        for uploaded in file_link:
+            url = f"{base_url}{uploaded}"
+        status.edit(f"✅ Link generated successfully: `{url}`")
+    except Exception as e:
+        status.edit(f"❌ Failed to generate link. Error: {e}")
 
-        i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ `{url}`')
+# <======================================= Commands ================================================>
+@app.on_message(filters.command(["tele", "telegraph"]))
+def upload_to_telegraph(_, message):
+    upload_to_platform(message, "https://telegra.ph")
 
-# <======================================= graph.org ==================================================>
-
-@app.on_message(filters.command(["graph" , "grf"]))
-def ul(_, message):
-    reply = message.reply_to_message
-    if reply.media:
-        i = message.reply("𝐌𝙰𝙺𝙴 𝐀 𝐋𝙸𝙽𝙺...")
-        path = reply.download()
-        fk = upload_file(path)
-        for x in fk:
-            url = "https://graph.org" + x
-
-        i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ `{url}`')
-
-# by https://github.com/lovetheticx
-        
+@app.on_message(filters.command(["graph", "grf"]))
+def upload_to_graph(_, message):
+    upload_to_platform(message, "https://graph.org")
