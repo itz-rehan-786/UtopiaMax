@@ -6,56 +6,66 @@ from GOKUMUSIC import app
 
 @app.on_message(filters.command("kang"))
 async def _packkang(app, message):
-    """
-    @MaybeSuraj on telegram. who helped me in making this module.
-    """
+    
     txt = await message.reply_text("Processing....")
+    
     if not message.reply_to_message:
         await txt.edit("Reply to a message containing a sticker.")
         return
+    
     if not message.reply_to_message.sticker:
         await txt.edit("Reply to a sticker.")
         return
-    if (
-        message.reply_to_message.sticker.is_animated
-        or message.reply_to_message.sticker.is_video
-    ):
-        return await txt.edit("Reply to a non-animated sticker.")
-    if len(message.command) < 2:
-        pack_name = f"{message.from_user.first_name}_sticker_pack_by_@app_Robot"
-    else:
-        pack_name = message.text.split(maxsplit=1)[1]
-
-    short_name = message.reply_to_message.sticker.set_name
-    stickers = await app.invoke(
-        pyrogram.raw.functions.messages.GetStickerSet(
-            stickerset=pyrogram.raw.types.InputStickerSetShortName(
-                short_name=short_name
-            ),
-            hash=0,
-        )
-    )
     
-    # Collect stickers from the set
-    shits = stickers.documents
-    sticks = []
+    # Determine if the sticker is animated or not
+    if message.reply_to_message.sticker.is_animated or message.reply_to_message.sticker.is_video:
+        sticker_is_animated = True
+    else:
+        sticker_is_animated = False
 
-    for i in shits:
-        sex = pyrogram.raw.types.InputDocument(
-            id=i.id, access_hash=i.access_hash, file_reference=i.thumbs[0].bytes
-        )
-
-        sticks.append(
-            pyrogram.raw.types.InputStickerSetItem(
-                document=sex, emoji=i.attributes[1].alt
+    # If the sticker is part of a sticker set, we handle it differently
+    if message.reply_to_message.sticker.set_name:
+        short_name = message.reply_to_message.sticker.set_name
+        stickers = await app.invoke(
+            pyrogram.raw.functions.messages.GetStickerSet(
+                stickerset=pyrogram.raw.types.InputStickerSetShortName(
+                    short_name=short_name
+                ),
+                hash=0,
             )
         )
+        
+        # Collect stickers from the set
+        shits = stickers.documents
+        sticks = []
+        for i in shits:
+            sex = pyrogram.raw.types.InputDocument(
+                id=i.id, access_hash=i.access_hash, file_reference=i.thumbs[0].bytes
+            )
+            sticks.append(
+                pyrogram.raw.types.InputStickerSetItem(
+                    document=sex, emoji=i.attributes[1].alt
+                )
+            )
+    else:
+        # For single stickers, we directly add them
+        sticker_document = message.reply_to_message.sticker
+        sex = pyrogram.raw.types.InputDocument(
+            id=sticker_document.file_id,
+            access_hash=sticker_document.file_unique_id, 
+            file_reference=sticker_document.thumb.file_id if sticker_is_animated else None
+        )
+        sticks = [pyrogram.raw.types.InputStickerSetItem(
+            document=sex, emoji=sticker_document.emoji
+        )]
+
+    # Generate a new sticker pack name using UUID
+    pack_name = f"{message.from_user.first_name}_sticker_pack_by_{app.me.username}" if len(message.command) < 2 else message.text.split(maxsplit=1)[1]
+    new_short_name = f"sticker_pack_{str(uuid4()).replace('-','')}_by_{app.me.username}"
 
     try:
-        # Generate a new sticker pack name using UUID
-        new_short_name = f'stikcer_pack_{str(uuid4()).replace("-","")}_by_{app.me.username}'
         user_id = await app.resolve_peer(message.from_user.id)
-        
+
         # Create the new sticker set
         await app.invoke(
             pyrogram.raw.functions.stickers.CreateStickerSet(
@@ -65,7 +75,8 @@ async def _packkang(app, message):
                 stickers=sticks,
             )
         )
-        
+
+        # Send the confirmation with the link to the newly created pack
         await txt.edit(
             f"Your sticker has been added! For fast updates, remove your pack & add again.\n🎖 𝗧𝗢𝗧𝗔𝗟 𝗦𝗧𝗜𝗖𝗞𝗘𝗥: {len(sticks)}",
             reply_markup=InlineKeyboardMarkup(
@@ -79,4 +90,4 @@ async def _packkang(app, message):
             ),
         )
     except Exception as e:
-        await message.reply(str(e))
+        await message.reply(f"Error occurred: {e}")
