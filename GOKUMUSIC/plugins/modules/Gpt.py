@@ -1,12 +1,18 @@
 import time
-import requests
+import openai
 from pyrogram import filters
 from pyrogram.enums import ChatAction, ParseMode
 from GOKUMUSIC import app
 
+# Replace this with your OpenAI API key
+openai.api_key = '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'  # Replace with your actual OpenAI API key
+
+# Replace this with your bot's username
+BOT_USERNAME = "YourBotUsername"
+
 @app.on_message(filters.command(["chatgpt", "ai", "ask", "gpt", "solve"], prefixes=["+", ".", "/", "-", "", "$", "#", "&"]))
 async def chat_gpt(bot, message):
-    """Fetch a response from ChatGPT-like API and reply to the user."""
+    """Fetch a response from OpenAI's GPT-3 and reply to the user."""
     try:
         start_time = time.time()
         await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
@@ -21,24 +27,16 @@ async def chat_gpt(bot, message):
         # Extract the query
         query = message.text.split(' ', 1)[1]
 
-        # Call the API
-        api_url = f"https://chatgpt.apinepdev.workers.dev/?question={query}"
-        response = requests.get(api_url, timeout=10)
-
-        # Check for a successful HTTP response
-        if response.status_code != 200:
-            return await message.reply_text(
-                f"Error: Unable to fetch a response. API returned status code {response.status_code}."
+        # Call the OpenAI API for a response
+        try:
+            response = openai.Completion.create(
+                engine="text-davinci-003",  # Use "gpt-3.5-turbo" or another model if preferred
+                prompt=query,
+                max_tokens=150  # You can adjust the number of tokens for your needs
             )
-
-        # Parse the JSON response
-        data = response.json()
-        answer = data.get("answer")
-
-        if not answer:
-            return await message.reply_text(
-                "The API did not return an answer. Please try again later."
-            )
+            answer = response['choices'][0]['text'].strip()
+        except openai.error.OpenAIError as e:
+            return await message.reply_text(f"Error: {str(e)}")
 
         # Measure the response time
         end_time = time.time()
@@ -50,9 +48,5 @@ async def chat_gpt(bot, message):
             parse_mode=ParseMode.MARKDOWN
         )
 
-    except requests.exceptions.Timeout:
-        await message.reply_text("Error: The request timed out. Please try again later.")
-    except requests.exceptions.RequestException as e:
-        await message.reply_text(f"Error: An error occurred while making the request.\n\nDetails: {e}")
     except Exception as e:
         await message.reply_text(f"Unexpected Error: {e}")
