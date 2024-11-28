@@ -1,4 +1,4 @@
-pimport time
+import time
 import openai
 from pyrogram import filters
 from pyrogram.enums import ChatAction, ParseMode
