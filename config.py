@@ -47,8 +47,8 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 
 # Owner and logging
 # Chat id of a group for logging bot's activities
-LOGGER_ID = os.getenv("LOGGER_ID", "")
-OWNER_ID = get_env_int("OWNER_ID", "")
+LOGGER_ID = os.getenv("LOGGER_ID", "@ZTX_HEADQUATERS")
+OWNER_ID = get_env_int("OWNER_ID", "7318101682")
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
@@ -124,11 +124,11 @@ SPOTIFY_PLAYLIST_IMG_URL = os.getenv(
 YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
 
 # Session strings
-STRING1 = os.getenv("STRING_SESSION", "")
-STRING2 = os.getenv("STRING_SESSION2", "")
-STRING3 = os.getenv("STRING_SESSION3", "")
-STRING4 = os.getenv("STRING_SESSION4", "") 
-STRING5 = os.getenv("STRING_SESSION5", "")
+STRING1 = os.getenv("STRING_SESSION", "BQGWS8YAQ85EPfSSZkJCt-ZlMxtF3RHHfpe7FFaiZTQ9FVXOGTcuMK_mrROX7LWs5za8kNb7RzBris_Dec7z5QmpMzKUmfiYoANsg7kYeevyqT_V74BfsiYvPZqiOqaNRRMOXknOZ2njR51dktt4zGUgSUzjdmIYjKS-ZmnRXNMyd-21zftY_ttkFHc0oxiH9fSCr9lN0CR0NjSQeipqrnLXekWxBtU4fK5kcqOm7DHAOi_tVZeENyAlqnRSsTewaRJwaobUKQiO7Qmlhw-YjOVWp_A7DOmoCjmVlRgXZPvpt4Nty6g71T8eaJ_eBhCVDMJuuPUIwG64_mQWQOVnz38b_uoxJQAAAAG-IuuuAA")
+STRING2 = os.getenv("STRING_SESSION2", "BQGWS8YAQ85EPfSSZkJCt-ZlMxtF3RHHfpe7FFaiZTQ9FVXOGTcuMK_mrROX7LWs5za8kNb7RzBris_Dec7z5QmpMzKUmfiYoANsg7kYeevyqT_V74BfsiYvPZqiOqaNRRMOXknOZ2njR51dktt4zGUgSUzjdmIYjKS-ZmnRXNMyd-21zftY_ttkFHc0oxiH9fSCr9lN0CR0NjSQeipqrnLXekWxBtU4fK5kcqOm7DHAOi_tVZeENyAlqnRSsTewaRJwaobUKQiO7Qmlhw-YjOVWp_A7DOmoCjmVlRgXZPvpt4Nty6g71T8eaJ_eBhCVDMJuuPUIwG64_mQWQOVnz38b_uoxJQAAAAG-IuuuAA")
+STRING3 = os.getenv("STRING_SESSION3", "BQGWS8YAQ85EPfSSZkJCt-ZlMxtF3RHHfpe7FFaiZTQ9FVXOGTcuMK_mrROX7LWs5za8kNb7RzBris_Dec7z5QmpMzKUmfiYoANsg7kYeevyqT_V74BfsiYvPZqiOqaNRRMOXknOZ2njR51dktt4zGUgSUzjdmIYjKS-ZmnRXNMyd-21zftY_ttkFHc0oxiH9fSCr9lN0CR0NjSQeipqrnLXekWxBtU4fK5kcqOm7DHAOi_tVZeENyAlqnRSsTewaRJwaobUKQiO7Qmlhw-YjOVWp_A7DOmoCjmVlRgXZPvpt4Nty6g71T8eaJ_eBhCVDMJuuPUIwG64_mQWQOVnz38b_uoxJQAAAAG-IuuuAA")
+STRING4 = os.getenv("STRING_SESSION4", "BQGWS8YAQ85EPfSSZkJCt-ZlMxtF3RHHfpe7FFaiZTQ9FVXOGTcuMK_mrROX7LWs5za8kNb7RzBris_Dec7z5QmpMzKUmfiYoANsg7kYeevyqT_V74BfsiYvPZqiOqaNRRMOXknOZ2njR51dktt4zGUgSUzjdmIYjKS-ZmnRXNMyd-21zftY_ttkFHc0oxiH9fSCr9lN0CR0NjSQeipqrnLXekWxBtU4fK5kcqOm7DHAOi_tVZeENyAlqnRSsTewaRJwaobUKQiO7Qmlhw-YjOVWp_A7DOmoCjmVlRgXZPvpt4Nty6g71T8eaJ_eBhCVDMJuuPUIwG64_mQWQOVnz38b_uoxJQAAAAG-IuuuAA") 
+STRING5 = os.getenv("STRING_SESSION5", "BQGWS8YAQ85EPfSSZkJCt-ZlMxtF3RHHfpe7FFaiZTQ9FVXOGTcuMK_mrROX7LWs5za8kNb7RzBris_Dec7z5QmpMzKUmfiYoANsg7kYeevyqT_V74BfsiYvPZqiOqaNRRMOXknOZ2njR51dktt4zGUgSUzjdmIYjKS-ZmnRXNMyd-21zftY_ttkFHc0oxiH9fSCr9lN0CR0NjSQeipqrnLXekWxBtU4fK5kcqOm7DHAOi_tVZeENyAlqnRSsTewaRJwaobUKQiO7Qmlhw-YjOVWp_A7DOmoCjmVlRgXZPvpt4Nty6g71T8eaJ_eBhCVDMJuuPUIwG64_mQWQOVnz38b_uoxJQAAAAG-IuuuAA")
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
