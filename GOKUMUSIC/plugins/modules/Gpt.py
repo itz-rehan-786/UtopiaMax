@@ -8,7 +8,7 @@ from GOKUMUSIC import app
 openai.api_key = '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'  # Replace with your actual OpenAI API key
 
 # Replace this with your bot's username
-BOT_USERNAME = "YourBotUsername"
+BOT_USERNAME = "UtopiaMaxBot"
 
 @app.on_message(filters.command(["chatgpt", "ai", "ask", "gpt", "solve"], prefixes=["+", ".", "/", "-", "", "$", "#", "&"]))
 async def chat_gpt(bot, message):
