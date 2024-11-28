@@ -6,7 +6,6 @@ from GOKUMUSIC import app
 
 @app.on_message(filters.command("kang"))
 async def _packkang(app, message):
-    
     txt = await message.reply_text("Processing....")
     
     if not message.reply_to_message:
@@ -18,12 +17,9 @@ async def _packkang(app, message):
         return
     
     # Determine if the sticker is animated or not
-    if message.reply_to_message.sticker.is_animated or message.reply_to_message.sticker.is_video:
-        sticker_is_animated = True
-    else:
-        sticker_is_animated = False
+    sticker_is_animated = message.reply_to_message.sticker.is_animated or message.reply_to_message.sticker.is_video
 
-    # If the sticker is part of a sticker set, we handle it differently
+    # If the sticker is part of a sticker set, handle it differently
     if message.reply_to_message.sticker.set_name:
         short_name = message.reply_to_message.sticker.set_name
         stickers = await app.invoke(
@@ -40,7 +36,9 @@ async def _packkang(app, message):
         sticks = []
         for i in shits:
             sex = pyrogram.raw.types.InputDocument(
-                id=i.id, access_hash=i.access_hash, file_reference=i.thumbs[0].bytes
+                id=i.id, 
+                access_hash=i.access_hash, 
+                file_reference=i.thumbs[0].bytes if i.thumbs else None
             )
             sticks.append(
                 pyrogram.raw.types.InputStickerSetItem(
@@ -50,10 +48,11 @@ async def _packkang(app, message):
     else:
         # For single stickers, we directly add them
         sticker_document = message.reply_to_message.sticker
+        file_reference = sticker_document.thumb.bytes if sticker_is_animated and sticker_document.thumb else None
         sex = pyrogram.raw.types.InputDocument(
             id=sticker_document.file_id,
             access_hash=sticker_document.file_unique_id, 
-            file_reference=sticker_document.thumb.file_id if sticker_is_animated else None
+            file_reference=file_reference
         )
         sticks = [pyrogram.raw.types.InputStickerSetItem(
             document=sex, emoji=sticker_document.emoji
@@ -78,7 +77,7 @@ async def _packkang(app, message):
 
         # Send the confirmation with the link to the newly created pack
         await txt.edit(
-            f"Your sticker has been added! For fast updates, remove your pack & add again.\n🎖 𝗧𝗢𝗧𝗔𝗟 𝗦𝗧𝗜𝗖𝗞𝗘𝗥: {len(sticks)}",
+            f"Your sticker has been added! For fast updates, remove your pack & add again.\n🎖 ʏᴏᴜʀ ᴘᴀᴄᴋ: {len(sticks)}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
