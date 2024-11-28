@@ -5,7 +5,7 @@ from pyrogram.enums import ChatAction, ParseMode
 from GOKUMUSIC import app
 
 # Replace this with your OpenAI API key
-openai.api_key = "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"  # Replace with your actual OpenAI API key
+openai.api_key = os.getenv("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")  # Replace with your actual OpenAI API key
 
 # Replace this with your bot's username
 BOT_USERNAME = "UtopiaMaxBot"
