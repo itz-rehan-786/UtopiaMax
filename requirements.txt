@@ -117,3 +117,5 @@ youtube-search-python
 python-dotenv
 
 urllib3
+
+openai
