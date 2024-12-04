@@ -16,7 +16,7 @@ from config import BANNED_USERS
 
 async def init():
     # Ensure Render's PORT is set (for HTTP health check or similar services)
-    port = int(os.getenv("PORT", 8000))
+    port = int(os.getenv("PORT", 0.0.0.0))
 
     # Ensure String Session(s) are properly set
     if not any(
