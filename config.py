@@ -29,16 +29,16 @@ def get_env_int(var_name, default_value):
 
 
 # Basic configurations
-API_ID = os.getenv("API_ID", "23568641")
-API_HASH = os.getenv("API_HASH", "a39098e8752a45c2d6d1889941547bbc")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "7339158179:AAE1l1oJkmAjXwKMiAVvPVPBmP33GdtCc1k")
-OWNER_USERNAME = os.getenv("OWNER_USERNAME", "X_STARBOY_KT")
-BOT_USERNAME = os.getenv("BOT_USERNAME", "UtopiaMaxBot")
-BOT_NAME = os.getenv("BOT_NAME", "Utopia")
+API_ID = os.getenv("API_ID", "27744639")
+API_HASH = os.getenv("API_HASH", "a5e9da62bcd7cc761de2490c52c89ccf")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8125428412:AAFRUBKz5Nt0mx9qaBrlTWwTBlX-Aop6vT4")
+OWNER_USERNAME = os.getenv("OWNER_USERNAME", "ituuc")
+BOT_USERNAME = os.getenv("BOT_USERNAME", "sung_gamebot")
+BOT_NAME = os.getenv("BOT_NAME", "Moonligt")
 ASSUSERNAME = os.getenv("ASSUSERNAME")
 
 # Database configurations
-MONGO_DB_URI = os.getenv("MONGO_DB_URI", "mongodb+srv://GOKU:MISSBHOPALI@goku.pzzsl8d.mongodb.net/?retryWrites=true&w=majority")
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "mongodb+srv://waifuuu0786:sungjinwoo@cluster0.uctgneu.mongodb.net/?retryWrites=true&w=majority")
 
 # Limits and durations
 DURATION_LIMIT_MIN = get_env_int("DURATION_LIMIT", 17000)
@@ -47,8 +47,8 @@ SONG_DOWNLOAD_DURATION_LIMIT = get_env_int("SONG_DOWNLOAD_DURATION_LIMIT", 99999
 
 # Owner and logging
 # Chat id of a group for logging bot's activities
-LOGGER_ID = os.getenv("LOGGER_ID", "@ZTX_HEADQUATERS")
-OWNER_ID = get_env_int("OWNER_ID", "7318101682")
+LOGGER_ID = os.getenv("LOGGER_ID", "-1002272021040")
+OWNER_ID = get_env_int("OWNER_ID", "7775259302")
 
 # Heroku configurations
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
@@ -60,8 +60,8 @@ UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 
 # Support links
-SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/Kayto_Official")
-SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/ZTX_HEADQUATERS")
+SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/ur_hell_paradise")
+SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "https://t.me/ur_hell_paradise")
 
 # Validate support URLs
 if SUPPORT_CHANNEL and not re.match(r"^https://", SUPPORT_CHANNEL):
@@ -124,11 +124,11 @@ SPOTIFY_PLAYLIST_IMG_URL = os.getenv(
 YOUTUBE_IMG_URL = "https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
 
 # Session strings
-STRING1 = os.getenv("STRING_SESSION", "BQGWS8YASuc09uq87-2XMWN4guJ674j_YJx7B5WdKvq58bWtzCaVOD24T3XDhlzm_3y1mQWUi_M2UpgKX70SMPzzE_8NflCxk9Ttd3OcTG6_LBJm0veAsip9ZYN7wZJpjiYuqvoGMtUk0EZHuaCLKF0BmT35oJd411iiDRWZI0rsUREvl5vKTbTa3AkIbERGzhw7e86qU9LuemQxOgBZVLu5TRnOtK30GvtkjwA8mKLKoSTlD6ZW_WsDuv-QEjndaNYEO6Oi4NzaFiflvsAoivyhsFYNHAXiuwpP01fpZap9yu0cjLf2kUCsNgJaAd1MESZ4eVyZfMYYuG272i88o8MmEpyYhwAAAAG-IuuuAA")
-STRING2 = os.getenv("STRING_SESSION2", "BQGWS8YASuc09uq87-2XMWN4guJ674j_YJx7B5WdKvq58bWtzCaVOD24T3XDhlzm_3y1mQWUi_M2UpgKX70SMPzzE_8NflCxk9Ttd3OcTG6_LBJm0veAsip9ZYN7wZJpjiYuqvoGMtUk0EZHuaCLKF0BmT35oJd411iiDRWZI0rsUREvl5vKTbTa3AkIbERGzhw7e86qU9LuemQxOgBZVLu5TRnOtK30GvtkjwA8mKLKoSTlD6ZW_WsDuv-QEjndaNYEO6Oi4NzaFiflvsAoivyhsFYNHAXiuwpP01fpZap9yu0cjLf2kUCsNgJaAd1MESZ4eVyZfMYYuG272i88o8MmEpyYhwAAAAG-IuuuAA")
-STRING3 = os.getenv("STRING_SESSION3", "BQGWS8YASuc09uq87-2XMWN4guJ674j_YJx7B5WdKvq58bWtzCaVOD24T3XDhlzm_3y1mQWUi_M2UpgKX70SMPzzE_8NflCxk9Ttd3OcTG6_LBJm0veAsip9ZYN7wZJpjiYuqvoGMtUk0EZHuaCLKF0BmT35oJd411iiDRWZI0rsUREvl5vKTbTa3AkIbERGzhw7e86qU9LuemQxOgBZVLu5TRnOtK30GvtkjwA8mKLKoSTlD6ZW_WsDuv-QEjndaNYEO6Oi4NzaFiflvsAoivyhsFYNHAXiuwpP01fpZap9yu0cjLf2kUCsNgJaAd1MESZ4eVyZfMYYuG272i88o8MmEpyYhwAAAAG-IuuuAA")
-STRING4 = os.getenv("STRING_SESSION4", "BQGWS8YASuc09uq87-2XMWN4guJ674j_YJx7B5WdKvq58bWtzCaVOD24T3XDhlzm_3y1mQWUi_M2UpgKX70SMPzzE_8NflCxk9Ttd3OcTG6_LBJm0veAsip9ZYN7wZJpjiYuqvoGMtUk0EZHuaCLKF0BmT35oJd411iiDRWZI0rsUREvl5vKTbTa3AkIbERGzhw7e86qU9LuemQxOgBZVLu5TRnOtK30GvtkjwA8mKLKoSTlD6ZW_WsDuv-QEjndaNYEO6Oi4NzaFiflvsAoivyhsFYNHAXiuwpP01fpZap9yu0cjLf2kUCsNgJaAd1MESZ4eVyZfMYYuG272i88o8MmEpyYhwAAAAG-IuuuAA") 
-STRING5 = os.getenv("STRING_SESSION5", "BQGWS8YASuc09uq87-2XMWN4guJ674j_YJx7B5WdKvq58bWtzCaVOD24T3XDhlzm_3y1mQWUi_M2UpgKX70SMPzzE_8NflCxk9Ttd3OcTG6_LBJm0veAsip9ZYN7wZJpjiYuqvoGMtUk0EZHuaCLKF0BmT35oJd411iiDRWZI0rsUREvl5vKTbTa3AkIbERGzhw7e86qU9LuemQxOgBZVLu5TRnOtK30GvtkjwA8mKLKoSTlD6ZW_WsDuv-QEjndaNYEO6Oi4NzaFiflvsAoivyhsFYNHAXiuwpP01fpZap9yu0cjLf2kUCsNgJaAd1MESZ4eVyZfMYYuG272i88o8MmEpyYhwAAAAG-IuuuAA")
+STRING1 = os.getenv("STRING_SESSION", "BQGnWX8Alb5W7EP_IZ4Udn5BNtlQECliuAioGKRehPTpn_266dyFzdRGPAUNNdzUs7gT3Q9aqrHAgBo04QpinLUk-0e3FTKuf4AZx1-c_2Yf-GN9oMnf22LloRhUL63GfExpQtT0oanRHWK2Qxqoi2TowvRPVYS1oKQIJzO-ZtN8tTL7_pvIT3d5BUmqjNkS_GFQ3XoIIM6Q5RsObrguGx0ov8axm5PNso9yACQx0AhgnniTkm5ReWFLJrJtvNq82YHCJkAjX-5ovIL7MF2nC8UoVf0Gn0sZQ3eRO9NOkOIjFmXHg-O8MecteNhsRMubPsMKOibGtovMHxiLsCeOy_EzkDfmswAAAAHRgjE-AA")
+STRING2 = os.getenv("STRING_SESSION2", "BQGnWX8Alb5W7EP_IZ4Udn5BNtlQECliuAioGKRehPTpn_266dyFzdRGPAUNNdzUs7gT3Q9aqrHAgBo04QpinLUk-0e3FTKuf4AZx1-c_2Yf-GN9oMnf22LloRhUL63GfExpQtT0oanRHWK2Qxqoi2TowvRPVYS1oKQIJzO-ZtN8tTL7_pvIT3d5BUmqjNkS_GFQ3XoIIM6Q5RsObrguGx0ov8axm5PNso9yACQx0AhgnniTkm5ReWFLJrJtvNq82YHCJkAjX-5ovIL7MF2nC8UoVf0Gn0sZQ3eRO9NOkOIjFmXHg-O8MecteNhsRMubPsMKOibGtovMHxiLsCeOy_EzkDfmswAAAAHRgjE-AA")
+STRING3 = os.getenv("STRING_SESSION3", "BQGnWX8Alb5W7EP_IZ4Udn5BNtlQECliuAioGKRehPTpn_266dyFzdRGPAUNNdzUs7gT3Q9aqrHAgBo04QpinLUk-0e3FTKuf4AZx1-c_2Yf-GN9oMnf22LloRhUL63GfExpQtT0oanRHWK2Qxqoi2TowvRPVYS1oKQIJzO-ZtN8tTL7_pvIT3d5BUmqjNkS_GFQ3XoIIM6Q5RsObrguGx0ov8axm5PNso9yACQx0AhgnniTkm5ReWFLJrJtvNq82YHCJkAjX-5ovIL7MF2nC8UoVf0Gn0sZQ3eRO9NOkOIjFmXHg-O8MecteNhsRMubPsMKOibGtovMHxiLsCeOy_EzkDfmswAAAAHRgjE-AA")
+STRING4 = os.getenv("STRING_SESSION4", "BQGnWX8Alb5W7EP_IZ4Udn5BNtlQECliuAioGKRehPTpn_266dyFzdRGPAUNNdzUs7gT3Q9aqrHAgBo04QpinLUk-0e3FTKuf4AZx1-c_2Yf-GN9oMnf22LloRhUL63GfExpQtT0oanRHWK2Qxqoi2TowvRPVYS1oKQIJzO-ZtN8tTL7_pvIT3d5BUmqjNkS_GFQ3XoIIM6Q5RsObrguGx0ov8axm5PNso9yACQx0AhgnniTkm5ReWFLJrJtvNq82YHCJkAjX-5ovIL7MF2nC8UoVf0Gn0sZQ3eRO9NOkOIjFmXHg-O8MecteNhsRMubPsMKOibGtovMHxiLsCeOy_EzkDfmswAAAAHRgjE-AA") 
+STRING5 = os.getenv("STRING_SESSION5", "BQGnWX8Alb5W7EP_IZ4Udn5BNtlQECliuAioGKRehPTpn_266dyFzdRGPAUNNdzUs7gT3Q9aqrHAgBo04QpinLUk-0e3FTKuf4AZx1-c_2Yf-GN9oMnf22LloRhUL63GfExpQtT0oanRHWK2Qxqoi2TowvRPVYS1oKQIJzO-ZtN8tTL7_pvIT3d5BUmqjNkS_GFQ3XoIIM6Q5RsObrguGx0ov8axm5PNso9yACQx0AhgnniTkm5ReWFLJrJtvNq82YHCJkAjX-5ovIL7MF2nC8UoVf0Gn0sZQ3eRO9NOkOIjFmXHg-O8MecteNhsRMubPsMKOibGtovMHxiLsCeOy_EzkDfmswAAAAHRgjE-AA")
 
 # Helper functions
 def time_to_seconds(time: str) -> int:
