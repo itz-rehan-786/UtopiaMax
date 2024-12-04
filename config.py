@@ -55,7 +55,7 @@ HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 
 # Git repository settings
-UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/Zeta-05/UtopiaMax")
+UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/itz-rehan-786/UtopiaMax.git")
 UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 
